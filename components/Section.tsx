@@ -9,7 +9,7 @@ type Props = {
 
 export const Section: React.FC<Props> = ({ height, primaryBg = false, children, ...props }) => {
   return (
-    <Box bg={primaryBg ? 'brand.primary' : ''} w='100%' >
+    <Box bg={primaryBg ? 'brand.primary' : ''} w='100%' py={10}>
       <Box mx='auto' maxW={1080} h={height} >
         {children}
       </Box>
