@@ -27,7 +27,7 @@ const Home: NextPage = () => {
             Your perfect holiday is just a few clicks away.
           </Text>
           <Stack direction='row' align='center' w='100%' spacing={10}>
-            <CardStep stepNumber={1} imageSrc='/step-01.png' title='Find the best deals end-to-end' subtitle="Less fees and frictions between you and your destination. Skip the middleman and avoid unnecessary booking steps " />
+            <CardStep stepNumber={1} imageSrc='/step-01.png' title='Find the best deals end-to-end' subtitle="Less fees and frictions between you and your destination. Skip the middleman and avoid unnecessary booking steps." />
             <CardStep stepNumber={2} imageSrc='/step-02.png' title='Plan your entire trip with Ollie' subtitle="Plan all your journey (transportation, accommodation and activities) in only one app. Enjoy more switch less." />
             <CardStep stepNumber={3} imageSrc='/step-03.png' title='Save pretious time while searching' subtitle="Get personalized itineraries based on your profile and previous trips in an ever-improving AI-based platform." />
           </Stack>

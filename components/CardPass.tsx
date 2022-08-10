@@ -14,25 +14,25 @@ type Props = {
 
 export const CardPass: React.FC<Props> = ({
   title, percentage = 0, totalQuantity, restQuantity,
-  ctaLink, highlighted = false, ...rest }) => {
+  ctaLink, highlighted = false, }) => {
 
   const textColor = highlighted ? 'white' : 'gray.700';
   const reverseTextColor = highlighted ? 'gray.700' : 'white';
   const bgColor = highlighted ? 'white' : 'brand.primary';
-  const minWidth = highlighted ? 370 : 270;
-  const minHeight = highlighted ? 600 : 500;
+  // const minWidth = highlighted ? 370 : 270;
+  // const minHeight = highlighted ? 600 : 500;
   const cardPadding = highlighted ? 16 : 8;
   return (
-    <Box p={5} w="100%" h="100%"
+    <Box w="100%" h="100%"
       shadow='xl' borderWidth='2px'
-      borderRadius='2xl' align='center'
+      borderRadius='2xl' display='flex' alignItems='center'
       bg={highlighted ? 'brand.primary' : ''}
-      p={cardPadding}{...rest}>
+      p={cardPadding}>
       <Stack align='center' justify='center' spacing={10} height='100%'>
         < Heading color={textColor} fontWeight={100}>{title}</Heading >
         <Stack direction='row' color={textColor} align='flex-start'
           justify='flex-start'>
-          <Heading size='2xl'>{percentage}%</Heading>
+          <Heading size='2xl' pr={2}>{percentage}%</Heading>
           <Heading size='md' fontWeight={400}>Booking fees
             for a lifetime!</Heading>
         </Stack>
@@ -58,7 +58,7 @@ export const CardPass: React.FC<Props> = ({
         </Stack >
         <Tag size='3xl' borderRadius='full' variant='solid'
           bg='white' color='gray.700' py={3} px={6}>
-          <Text as={highlighted ? '' : 'u'} a>
+          <Text as={highlighted ? undefined : 'u'}>
             <Link href={ctaLink} target='_blank'>
               Learn More
             </Link>
