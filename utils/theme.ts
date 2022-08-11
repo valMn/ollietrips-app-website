@@ -2,6 +2,7 @@ export const theme = {
   colors: {
     brand: {
       primary: "#3498FE",
+      transparent: "rgba(0,0,0,0.001)",
     },
   },
   fonts: {

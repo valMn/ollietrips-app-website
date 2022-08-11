@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { Box, Stack, Text, Heading, Tag, Center, Divider, Flex } from '@chakra-ui/react';
 import Link from "next/link";
 
@@ -25,7 +24,7 @@ export const CardPass: React.FC<Props> = ({
   return (
     <Box w="100%" h="100%"
       shadow='xl' borderWidth='2px'
-      borderRadius='2xl' display='flex' alignItems='center'
+      borderRadius='2rem' display='flex' alignItems='center'
       bg={highlighted ? 'brand.primary' : ''}
       p={cardPadding}>
       <Stack align='center' justify='center' spacing={10} height='100%'>

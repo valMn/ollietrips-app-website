@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import { Text, Stack } from '@chakra-ui/react';
-import { Section, CardPass, CardStep } from "../components"; 
+import { Text, Box, Stack, Flex, Heading, Spacer } from '@chakra-ui/react';
+import { Section, CardPass, CardStep, CardCreator } from "../components"; 
 
 const Home: NextPage = () => {
   return (
@@ -39,6 +39,21 @@ const Home: NextPage = () => {
             <CardPass title="Deluxe Pass" percentage={0} totalQuantity={100} restQuantity={37} ctaLink="#" highlighted />
             <CardPass title="Pro Pass" percentage={7} totalQuantity={1000} restQuantity={340} ctaLink="#" />
           </Stack>
+        </Section>
+
+        <Section>
+          <Flex direction='row' width='100%' align='flex-start' justify='space-between'>
+            <Box >
+              <Heading>Ollie Creators</Heading>
+            </Box>
+            <Stack spacing={8} className='scrollable-content' pr={2}>
+              <CardCreator imageSrc='' name='Mark Johnson' linkedInUrl='' description='lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum dolor lorem ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum d' />
+              <CardCreator imageSrc='' name='Mark Johnson' linkedInUrl='' description='lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum dolor lorem ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum d' />
+              <CardCreator imageSrc='' name='Mark Johnson' linkedInUrl='' description='lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum dolor lorem ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum d' />
+              <CardCreator imageSrc='' name='Mark Johnson' linkedInUrl='' description='lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum dolor lorem ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum d' />
+            </Stack>
+            <Box w='100%' h='400px' bgGradient='linear(to-t, white, brand.transparent)' position="absolute" bottom={0} />
+          </Flex>
         </Section>
         {/*
         <p className={styles.description}>
