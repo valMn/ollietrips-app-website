@@ -20,9 +20,9 @@ export const CardCreator: React.FC<Props> = ({ imageSrc, name, linkedInUrl, desc
           <Flex align='center' justify='space-between' gap={4}>
             <Heading color='gray.600' size='lg'>{name}</Heading>
             {linkedInUrl && <Link href={linkedInUrl} isExternal>
-              <Square bg='brand.primary' borderRadius='50%' w={50} h={50} p={2.5}>
+              <Box bg='brand.primary' borderRadius='50%' width={50} h={50} p={2.5}>
                 <Icon as={FiLinkedin} color='white' w='100%' h='100%' />
-              </Square>
+              </Box>
             </Link>}
           </Flex>
           <Text >{description}</Text>
