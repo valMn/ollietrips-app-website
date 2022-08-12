@@ -1,14 +1,15 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import { Text, Box, Stack, Flex, Heading, Spacer } from '@chakra-ui/react';
+import { creators } from '../data/creators';
+import { Text, Box, Stack, Flex, Heading, Spacer, Divider } from '@chakra-ui/react';
 import { Section, CardPass, CardStep, CardCreator } from "../components"; 
 
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Ollie App</title>
+        <title>Ollie App - An all in one travel app for your dream holiday</title>
         <meta name="description" content="Homepage for Ollie App" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -48,15 +49,15 @@ const Home: NextPage = () => {
               <Heading>Ollie Creators</Heading>
             </Box>
             <Stack spacing={8} className='scrollable-content' pr={2}>
-              <CardCreator imageSrc='' name='Mark Johnson' linkedInUrl='' description='lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum dolor lorem ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum d' />
-              <CardCreator imageSrc='' name='Mark Johnson' linkedInUrl='' description='lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum dolor lorem ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum d' />
-              <CardCreator imageSrc='' name='Mark Johnson' linkedInUrl='' description='lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum dolor lorem ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum d' />
-              <CardCreator imageSrc='' name='Mark Johnson' linkedInUrl='' description='lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum dolor lorem ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum dolor ipsum d' />
+              {creators.map((creator, i) => (
+                <CardCreator key={i} imageSrc={creator.imageSrc} name={creator.name} linkedInUrl={creator.linkedInUrl} description={creator.description} />
+              ))}
+              <Divider sx={{ border: '3px solid black' }} />
+              <Box w='100%' minH='50px' bg='white' ></Box>
             </Stack>
-            <Box w='100%' h='400px' bgGradient='linear(to-t, white 20%, brand.transparent)' position="absolute" bottom={0} />
+            <Box sx={{ 'pointer-events': 'none' }} w='100%' h='300px' bgGradient='linear(to-t, white 20%, brand.transparent)' position="absolute" bottom={0} />
           </Flex>
         </Section>
-
       </main>
     </div>
   );
