@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Box, Stack, Text, Heading } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 
 type Props = {
   children: React.ReactNode;

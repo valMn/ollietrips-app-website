@@ -19,26 +19,27 @@ export const CardPass: React.FC<Props> = ({
   const reverseTextColor = highlighted ? 'brand.darkGray' : 'white';
   const bgColor = highlighted ? 'white' : 'brand.primary';
   const cardPadding = highlighted ? 16 : 8;
+  const cardPaddingY = highlighted ? 24 : ''
+
   return (
     <Box w="100%" h="100%"
       shadow='xl' borderWidth='2px'
       borderRadius='2rem' display='flex' alignItems='center'
       bg={highlighted ? 'brand.primary' : ''}
-      p={cardPadding}>
+      p={cardPadding} py={cardPaddingY}>
       <Stack align='center' justify='center' spacing={10} height='100%'>
         < Heading color={textColor} fontWeight={100}>{title}</Heading >
-        <Stack direction='row' color={textColor} align='flex-start'
-          justify='flex-start'>
+        <Flex gap={4} justifyContent='center' alignItems='center' color={textColor} >
           <Heading size='2xl' pr={2}>{percentage}%</Heading>
           <Heading size='md' fontWeight={400}>Booking fees
             for a lifetime!</Heading>
-        </Stack>
+        </Flex>
         <Tag size='lg' bg={bgColor}>
           <Text color={reverseTextColor}>
             {totalQuantity} pieces
           </Text>
         </Tag>
-        <Center height='10px' width='100px'>
+        <Center height='10px' width='50px'>
           <Divider size='lg' bg={bgColor} orientation='horizontal' borderWidth={1} />
         </Center>
         <Stack color={textColor}>
