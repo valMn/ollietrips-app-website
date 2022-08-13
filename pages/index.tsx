@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
 import Head from 'next/head';
+import { theme } from '../utils/theme';
 import styles from '../styles/Home.module.css';
 import { creators } from '../data/creators';
 import { hotels } from '../data/hotels';
@@ -52,9 +53,10 @@ const Home: NextPage = () => {
               <Heading>Ollie Creators</Heading>
             </Box>
             <Stack spacing={8} className='scrollable-content' pr={2}>
-              {creators.map((creator, i) => (
-                <CardCreator key={i} imageSrc={creator.imageSrc} name={creator.name} linkedInUrl={creator.linkedInUrl} description={creator.description} />
-              ))}
+              {creators.map((creator, i) => {
+                const { name, position, description, imageSrc, linkedInUrl } = creator;
+                return <CardCreator key={i} imageSrc={imageSrc} name={name} role={position} linkedInUrl={linkedInUrl} description={description} />;
+              })}
               <Divider sx={{ border: '3px solid black' }} />
               <Box w='100%' minH='50px' bg='white' ></Box>
               <Box sx={{ 'pointer-events': 'none' }} w='100%' h='300px' bgGradient='linear(to-t, white 20%, brand.transparent)' position="absolute" bottom={0} />
@@ -81,12 +83,15 @@ const Home: NextPage = () => {
         </Section>
 
         <Section>
-          <Flex>
+          <Flex direction='column' gap={10}>
+            <Heading size="4xl">Your favorite Hotels on <span style={{ color: theme.colors.brand.primary }}>Ollie</span></Heading>
+            <Flex alignItems='center'
+              justifyContent='center' style={{ display: 'flex', gap: 40, flexWrap: 'wrap' }}>
             {hotels.map((hotel, i) => (
-              <CardPartner key={i} src={hotel.imageSrc} />
+              <CardPartner key={i} src={hotel} />
             ))}
           </Flex>
-          <Image src='/logos/hotels/ac.svg' alt='ac' width={200} height={200} />
+          </Flex>
         </Section>
 
       </main>

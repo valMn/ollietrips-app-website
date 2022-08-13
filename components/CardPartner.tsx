@@ -1,20 +1,18 @@
 import React from 'react';
 import Image from 'next/image';
-import { Box, Stack, Text, Heading } from '@chakra-ui/react';
+import { Box, Center, Stack, Flex, Heading } from '@chakra-ui/react';
 
 type Props = {
   src: string;
 };
 
 export const CardPartner: React.FC<Props> = ({ src, ...rest }) => {
-  console.log(src);
   return (
     <Box bg='brand.ultraLightGray'
-      borderRadius='2rem' p={20}
+    borderRadius='2rem' p={8}
       {...rest}>
-      <Box>
-        <Image src={src} width={200} height={200} alt='hotel logo'
-        />
+    <Box minW={200} minH={200} sx={{ opacity: 0.5 }}>
+      <Image src={`/logos/hotels/${src}.svg`} alt={src} width={200} height={200} />
       </Box>
     </Box>);
 };
