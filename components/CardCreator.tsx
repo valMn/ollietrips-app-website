@@ -15,7 +15,7 @@ export const CardCreator: React.FC<Props> = ({ imageSrc, name, linkedInUrl, desc
     <Box bg='brand.ultraLightGray'
       borderRadius='2rem' w={700} h={300} p={20}>
       <Flex gap={6}>
-        <Avatar size='xl' src={imageSrc} name={name} />
+        <Avatar size='xl' src={imageSrc} name={name} sx={{ 'background': 'none' }} />
         <Stack>
           <Flex align='center' justify='space-between' gap={4}>
             <Heading color='brand.darkGray' size='lg'>{name}</Heading>
