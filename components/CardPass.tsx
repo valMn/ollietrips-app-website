@@ -15,11 +15,9 @@ export const CardPass: React.FC<Props> = ({
   title, percentage = 0, totalQuantity, restQuantity,
   ctaLink, highlighted = false, }) => {
 
-  const textColor = highlighted ? 'white' : 'gray.700';
-  const reverseTextColor = highlighted ? 'gray.700' : 'white';
+  const textColor = highlighted ? 'white' : 'brand.darkGray';
+  const reverseTextColor = highlighted ? 'brand.darkGray' : 'white';
   const bgColor = highlighted ? 'white' : 'brand.primary';
-  // const minWidth = highlighted ? 370 : 270;
-  // const minHeight = highlighted ? 600 : 500;
   const cardPadding = highlighted ? 16 : 8;
   return (
     <Box w="100%" h="100%"
@@ -56,7 +54,7 @@ export const CardPass: React.FC<Props> = ({
           </Text>
         </Stack >
         <Tag size='3xl' borderRadius='full' variant='solid'
-          bg='white' color='gray.700' py={3} px={6}>
+          bg='white' color='brand.darkGray' py={3} px={6}>
           <Text as={highlighted ? undefined : 'u'}>
             <Link href={ctaLink} target='_blank'>
               Learn More

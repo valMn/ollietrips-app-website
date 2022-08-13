@@ -1,8 +1,13 @@
 export const theme = {
+
   colors: {
     brand: {
       primary: "#3498FE",
       transparent: "rgba(0,0,0,0.001)",
+      darkGray: '#1F1E1E',
+      mediumGray: '#6F6F6F',
+      lightGray: '#D6D6DB',
+      ultraLightGray: '#F9F9F9'
     },
   },
   fonts: {

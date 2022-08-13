@@ -3,7 +3,7 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { creators } from '../data/creators';
 import { Text, Box, Stack, Flex, Heading, Spacer, Divider } from '@chakra-ui/react';
-import { Section, CardPass, CardStep, CardCreator } from "../components"; 
+import { Section, CardPass, CardStep, CardCreator, CardQuote } from "../components"; 
 
 const Home: NextPage = () => {
   return (
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         </Section>
 
         <Section>
-          <Text color='gray.700' fontSize='5xl' align='center'
+          <Text color='brand.darkGray' fontSize='5xl' align='center'
             // maxWidth={580}
             fontWeight='bold' pb={14}>
             Your perfect holiday is just a few clicks away.
@@ -58,6 +58,25 @@ const Home: NextPage = () => {
             <Box sx={{ 'pointer-events': 'none' }} w='100%' h='300px' bgGradient='linear(to-t, white 20%, brand.transparent)' position="absolute" bottom={0} />
           </Flex>
         </Section>
+
+        <Section>
+          <Flex justifyContent='center'>
+            <CardQuote p='20'>
+              <Heading size='md' pb='10'>Other booking platforms are charging between 14% and 30% booking fees. </Heading >
+              <Text>Be our VIP user and reduce your booking fees to as low as 0%. For a lifetime. With our precious Lifetime Passes.</Text>
+            </CardQuote>
+          </Flex>
+        </Section>
+
+        <Section>
+          <Flex justifyContent='center'>
+            <CardQuote p='20'>
+              <Text>{`You don't need 100 apps to check the best travel deals, you only need one. `}</Text>
+              <Heading size='md' pt='2'>Ollie</Heading >
+            </CardQuote>
+          </Flex>
+        </Section>
+
       </main>
     </div>
   );
