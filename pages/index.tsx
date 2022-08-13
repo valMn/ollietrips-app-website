@@ -1,9 +1,11 @@
 import type { NextPage } from 'next';
+import Image from 'next/image';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { creators } from '../data/creators';
-import { Text, Box, Stack, Flex, Heading, Spacer, Divider } from '@chakra-ui/react';
-import { Section, CardPass, CardStep, CardCreator, CardQuote } from "../components"; 
+import { hotels } from '../data/hotels';
+import { Text, Box, Stack, Flex, Heading, Divider } from '@chakra-ui/react';
+import { Section, CardPass, CardStep, CardCreator, CardQuote, CardPartner } from "../components"; 
 
 const Home: NextPage = () => {
   return (
@@ -44,7 +46,8 @@ const Home: NextPage = () => {
         </Section>
 
         <Section>
-          <Flex direction='row' width='100%' align='flex-start' justify='space-between'>
+          <Flex direction='row' width='100%' align='flex-start' justify='space-between'
+            position='relative'>
             <Box >
               <Heading>Ollie Creators</Heading>
             </Box>
@@ -54,8 +57,8 @@ const Home: NextPage = () => {
               ))}
               <Divider sx={{ border: '3px solid black' }} />
               <Box w='100%' minH='50px' bg='white' ></Box>
+              <Box sx={{ 'pointer-events': 'none' }} w='100%' h='300px' bgGradient='linear(to-t, white 20%, brand.transparent)' position="absolute" bottom={0} />
             </Stack>
-            <Box sx={{ 'pointer-events': 'none' }} w='100%' h='300px' bgGradient='linear(to-t, white 20%, brand.transparent)' position="absolute" bottom={0} />
           </Flex>
         </Section>
 
@@ -75,6 +78,15 @@ const Home: NextPage = () => {
               <Heading size='md' pt='2'>Ollie</Heading >
             </CardQuote>
           </Flex>
+        </Section>
+
+        <Section>
+          <Flex>
+            {hotels.map((hotel, i) => (
+              <CardPartner key={i} src={hotel.imageSrc} />
+            ))}
+          </Flex>
+          <Image src='/logos/hotels/ac.svg' alt='ac' width={200} height={200} />
         </Section>
 
       </main>
