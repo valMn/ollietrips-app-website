@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Stack, Text, Heading, Tag, Center, Divider, Flex } from '@chakra-ui/react';
 import Link from "next/link";
+import Sal from "./Sal";
 
 type Props = {
   title: string;
@@ -22,6 +23,7 @@ export const CardPass: React.FC<Props> = ({
   const cardPaddingY = highlighted ? 24 : ''
 
   return (
+    <Sal animation='slide-up'>
     <Box w="100%" h="100%"
       shadow='xl' borderWidth='2px'
       borderRadius='2rem' display='flex' alignItems='center'
@@ -63,5 +65,7 @@ export const CardPass: React.FC<Props> = ({
           </Text>
         </Tag>
       </Stack>
-    </Box >);
+      </Box >
+    </Sal>
+  );
 };;

@@ -6,7 +6,10 @@ import styles from '../styles/Home.module.css';
 import { creators } from '../data/creators';
 import { hotels } from '../data/hotels';
 import { Text, Box, Stack, Flex, Heading, Divider, Center } from '@chakra-ui/react';
-import { Section, CardPass, CardStep, CardCreator, CardQuote, CardPartner } from "../components"; 
+import { Section, CardPass, CardStep, CardCreator, CardQuote, CardPartner, Sal } from "../components";
+import sal, { Options } from 'sal.js';
+import 'sal.js/dist/sal.css';
+sal({ once: true } as Options);
 
 const Home: NextPage = () => {
   return (
@@ -56,7 +59,7 @@ const Home: NextPage = () => {
 
         <Section>
           <Stack align='center'>
-            <Heading size='4xl' fontWeight='medium'>So what about <span style={{ fontSize: 110, color: theme.colors.brand.darkGray, fontWeight: 'bold' }}>0%</span></Heading> <br />
+            <Heading size='4xl' fontWeight='medium'>So what about <Sal inline animation='zoom-out' duration='2000' style={{ fontSize: 110, color: theme.colors.brand.darkGray, fontWeight: 'bold' }}>0%</Sal></Heading> <br />
             <Heading size='4xl' fontWeight='medium'>platform fees?</Heading>
           </Stack>
         </Section>
@@ -73,15 +76,20 @@ const Home: NextPage = () => {
         <Section>
           <Flex>
             <Box flex='3'>
+              <Sal animation='slide-left' inline>
               <Heading size="3xl">
                 {`You're still not sure?`}
-              </Heading></Box>
+                </Heading>
+              </Sal>
+            </Box>
             <Stack flex='2'>
               <Heading size='md' pb='4'>How much can you save with our Lifetime Passes? </Heading >
+              <Sal animation='slide-right' inline>
               <Text>{`Let’s imagine that you are spending around €2000 on travel in a year:
                 While another booking platforms are charging between 14% and 30% booking fees, Ollie only charges 11-12%.
                 If you use the Ollie free account you are saving on average €100 on your annual plan.`}
               </Text>
+              </Sal>
             </Stack>
           </Flex>
         </Section>
@@ -113,7 +121,9 @@ const Home: NextPage = () => {
 
         <Section>
           <Flex direction='column' gap={20}>
-            <Heading size="4xl">Your favorite Hotels on <span style={{ color: theme.colors.brand.primary }}>Ollie</span></Heading>
+            <Sal animation='slide-up' duration='2000'>
+              <Heading size="4xl">Your favorite Hotels on <span style={{ color: theme.colors.brand.primary }}>Ollie</span></Heading>
+            </Sal>
             <Flex alignItems='center'
               justifyContent='center' style={{ display: 'flex', gap: 40, flexWrap: 'wrap' }}>
             {hotels.map((hotel, i) => (
@@ -127,7 +137,9 @@ const Home: NextPage = () => {
           <Flex direction='row' width='100%' align='flex-start' justify='space-between'
             position='relative'>
             <Box >
+              <Sal animation='slide-left'>
               <Heading>Ollie Creators</Heading>
+              </Sal>
             </Box>
             <Stack spacing={8} className='scrollable-content' pr={2}>
               {creators.map((creator, i) => {

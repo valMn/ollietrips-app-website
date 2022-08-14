@@ -7,6 +7,7 @@ import '@fontsource/montserrat/400.css';
 import '@fontsource/montserrat/800.css';
 import { extendTheme } from "@chakra-ui/react";
 
+
 const customTheme = extendTheme({
   ...theme
 })
