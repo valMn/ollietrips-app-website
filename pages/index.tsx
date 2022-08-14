@@ -104,7 +104,6 @@ const Home: NextPage = () => {
           </Flex>
         </Section>
 
-        {/* One app to rule them all */}
         <Section>
           <Flex direction='column' gap='80px'>
             <Heading size="4xl">One <span style={{ color: theme.colors.brand.primary }}>App</span> to rule them all!</Heading>
