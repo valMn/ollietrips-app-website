@@ -1,3 +1,4 @@
+import { flattenTokens } from "@chakra-ui/styled-system";
 import React from 'react';
 import { useMemo } from 'react';
 
@@ -28,6 +29,8 @@ type Props = {
   delay?: string;
   easing?: string;
   inline?: boolean;
+  repeat?: boolean;
+  once?: boolean;
   style?: any;
   children: React.ReactNode;
 };
@@ -36,9 +39,12 @@ export const Sal: React.FC<Props> = ({
   animation = 'fade',
   duration = '500',
   delay = '0',
+  easing = 'ease-out-bounce',
+  repeat = false,
+  once = false,
   inline = false,
   style,
-  easing = 'ease-out-bounce', children,
+  children,
 }) => {
 
   return inline ? (<span style={style}
@@ -46,6 +52,8 @@ export const Sal: React.FC<Props> = ({
     data-sal-duration={duration}
     data-sal-delay={delay}
     data-sal-easing={easing}
+    data-sal-repeat={repeat}
+    data-sal0-once={once}
   >
     {children}
   </span>) : (<div style={style}
@@ -53,17 +61,11 @@ export const Sal: React.FC<Props> = ({
     data-sal-duration={duration}
     data-sal-delay={delay}
     data-sal-easing={easing}
+      data-sal-repeat={repeat}
+      data-sal0-once={once}
   >
     {children}
   </div>);
-};
-
-Sal.defaultProps = {
-  children: null,
-  animation: 'fade',
-  duration: '500',
-  delay: '0',
-  easing: 'ease-out-bounce',
 };
 
 export default Sal;
