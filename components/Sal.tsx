@@ -41,7 +41,7 @@ export const Sal: React.FC<Props> = ({
   delay = '0',
   easing = 'ease-out-bounce',
   repeat = false,
-  once = false,
+  once = true,
   inline = false,
   style,
   children,
