@@ -40,11 +40,10 @@ export const Sal: React.FC<Props> = ({
   duration = '500',
   delay = '0',
   easing = 'ease-out-bounce',
-  repeat = false,
-  once = true,
   inline = false,
   style,
   children,
+  ...rest
 }) => {
 
   return inline ? (<span style={style}
@@ -52,8 +51,7 @@ export const Sal: React.FC<Props> = ({
     data-sal-duration={duration}
     data-sal-delay={delay}
     data-sal-easing={easing}
-    data-sal-repeat={repeat}
-    data-sal0-once={once}
+    {...rest}
   >
     {children}
   </span>) : (<div style={style}
@@ -61,8 +59,7 @@ export const Sal: React.FC<Props> = ({
     data-sal-duration={duration}
     data-sal-delay={delay}
     data-sal-easing={easing}
-      data-sal-repeat={repeat}
-      data-sal0-once={once}
+      {...rest}
   >
     {children}
   </div>);

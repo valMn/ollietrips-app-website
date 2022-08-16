@@ -7,10 +7,16 @@ import styles from '../styles/Home.module.css';
 import { creators } from '../data/creators';
 import { hotels } from '../data/hotels';
 import { headerServices } from "../data/headerServices";
-import { Text, Box, Stack, Flex, Heading, Divider, Center, Spacer, Input, Button } from '@chakra-ui/react';
+import { Text, Box, Stack, Flex, Heading, Divider, Center, Spacer, Input, Button, HStack, Circle } from '@chakra-ui/react';
 import { Section, CardPass, CardStep, CardCreator, CardQuote, CardPartner, HeaderService, Sal } from "../components";
 import sal, { Options } from 'sal.js';
 import 'sal.js/dist/sal.css';
+import Link from "next/link";
+import { FiLinkedin } from 'react-icons/fi';
+import { FiFacebook } from 'react-icons/fi';
+import { FiInstagram } from 'react-icons/fi';
+import { FiTwitter } from 'react-icons/fi';
+
 sal({ once: true } as Options);
 
 const Home: NextPage = () => {
@@ -56,7 +62,7 @@ const Home: NextPage = () => {
               <Heading size='lg' pb={10}>Just join now and start saving tomorrow!</Heading >
               <Text >Be one of our first users. The first 2000 travelers who subscribes to our waiting list will receive <span style={{ fontWeight: 'bold' }}>PREMIUM</span> benefits</Text>
             </Flex>
-            <Sal animation='slide-up'>
+            {/* <Sal animation='slide-up'> */}
               <Box
                 style={{
                   position: 'relative',
@@ -65,7 +71,7 @@ const Home: NextPage = () => {
                   maxWidth: 400
                 }}
               >
-                <Image src='/images/iphone-outline.svg' alt='Iphone 13 outline'
+              <Image src='/images/iphone-outline.svg' alt='Iphone 13 outline'
                   width={400} height={450}
                 />
                 <Stack spacing={5} px={20} alignItems='center'
@@ -79,7 +85,7 @@ const Home: NextPage = () => {
                     maxW={40}>{`Let's go`}</Button>
                 </Stack>
               </Box>
-            </Sal>
+            {/* </Sal> */}
           </Flex>
         </Section>
 
@@ -190,9 +196,9 @@ const Home: NextPage = () => {
         <Section>
           <Flex direction='row' width='100%' align='flex-start' justify='space-between'
             position='relative'>
-            <Box >
+            <Box maxW={300}>
               <Sal animation='slide-left'>
-              <Heading>Ollie Creators</Heading>
+                <Heading fontWeight='semibold' size='2xl'>Ollie Creators</Heading>
               </Sal>
             </Box>
             <Stack spacing={8} className='scrollable-content' pr={2}>
@@ -206,6 +212,61 @@ const Home: NextPage = () => {
             </Stack>
           </Flex>
         </Section>
+
+        <Section primaryBg
+          style={{ borderRadius: '40px 40px 0 0' }}>
+          <footer>
+            <Flex color='white' width='100%' gap={16}>
+              <Box flex='1'></Box>
+              <Stack flex='2' align='center' spacing={7}>
+                <Heading size='md'>Be the first!</Heading>
+                <Text>Enter Your Email To Get Premium Bonuses</Text>
+                <Input placeholder='Email' variant='filled' size='lg' type='email' />
+                <Button bgColor='brand.primary'
+                  color='white' colorScheme="whiteAlpha"
+                  size='lg' variant='outline'
+                  maxW={40}>{`Let's go`}</Button>
+              </Stack>
+              <Stack flex='1' spacing={6}>
+                <Heading size='md'>Contact</Heading>
+                <Text>Bucharest, RO</Text>
+                <a href='mailto:info@ollieapp.travel' >
+                  <span style={{ textDecoration: 'underline' }}>info@ollieapp.travel</span>
+                </a>
+                <HStack>
+                  <a href='#'>
+                    <Circle
+                      bg='white'
+                      color='brand.primary'
+                      p={2}
+                    ><FiLinkedin /></Circle>
+                  </a>
+                  <a href='#'>
+                    <Circle
+                      bg='white'
+                      color='brand.primary'
+                      p={2}
+                    ><FiFacebook /></Circle>
+                  </a>
+                  <a href='#'>
+                    <Circle
+                      bg='white'
+                      color='brand.primary'
+                      p={2}
+                    ><FiInstagram /></Circle>
+                  </a>
+                  <a href='#'>
+                    <Circle
+                      bg='white'
+                      color='brand.primary'
+                      p={2}
+                    ><FiTwitter /></Circle>
+                  </a>
+                </HStack>
+              </Stack>
+            </Flex>
+          </footer >
+        </Section >
 
       </main>
     </div>
