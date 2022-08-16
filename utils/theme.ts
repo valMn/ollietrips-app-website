@@ -1,5 +1,22 @@
 export const theme = {
-
+  components: {
+    Input: {
+      sizes: {
+        lg: {
+          field: {
+            borderRadius: '26',
+          },
+        },
+      },
+    },
+    Button: {
+      sizes: {
+        lg: {
+          borderRadius: '26',
+        }
+      }
+    },
+  },
   colors: {
     brand: {
       primary: "#3498FE",

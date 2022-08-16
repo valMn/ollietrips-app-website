@@ -7,7 +7,7 @@ import styles from '../styles/Home.module.css';
 import { creators } from '../data/creators';
 import { hotels } from '../data/hotels';
 import { headerServices } from "../data/headerServices";
-import { Text, Box, Stack, Flex, Heading, Divider, Center } from '@chakra-ui/react';
+import { Text, Box, Stack, Flex, Heading, Divider, Center, Spacer, Input, Button } from '@chakra-ui/react';
 import { Section, CardPass, CardStep, CardCreator, CardQuote, CardPartner, HeaderService, Sal } from "../components";
 import sal, { Options } from 'sal.js';
 import 'sal.js/dist/sal.css';
@@ -45,6 +45,42 @@ const Home: NextPage = () => {
               {headerServices.map((service, i) => <HeaderService key={i} imageSrc={service.imageSrc} label={service.label} />)}
             </Flex>
           </Box>
+        </Section>
+
+        <Section primaryBg hero>
+          <Flex direction='row'
+            justifyContent='space-between'>
+
+            <Flex direction='column'
+              maxW={400} color='white' h='auto' align='center' justify='center'>
+              <Heading size='lg' pb={10}>Just join now and start saving tomorrow!</Heading >
+              <Text >Be one of our first users. The first 2000 travelers who subscribes to our waiting list will receive <span style={{ fontWeight: 'bold' }}>PREMIUM</span> benefits</Text>
+            </Flex>
+            <Sal animation='slide-up'>
+              <Box
+                style={{
+                  position: 'relative',
+                  bottom: -48,
+                  height: '100%',
+                  maxWidth: 400
+                }}
+              >
+                <Image src='/images/iphone-outline.svg' alt='Iphone 13 outline'
+                  width={400} height={450}
+                />
+                <Stack spacing={5} px={20} alignItems='center'
+                  sx={{ top: '35%' }}
+                  position='absolute' >
+                  <Input placeholder='First Name' variant='filled' size='lg' />
+                  <Input placeholder='Email' variant='filled' size='lg' type='email' />
+                  <Button bgColor='brand.primary'
+                    color='white'
+                    size='lg'
+                    maxW={40}>{`Let's go`}</Button>
+                </Stack>
+              </Box>
+            </Sal>
+          </Flex>
         </Section>
 
         <Section>
