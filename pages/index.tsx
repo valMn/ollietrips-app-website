@@ -62,7 +62,7 @@ const Home: NextPage = () => {
               <Heading size='lg' pb={10}>Just join now and start saving tomorrow!</Heading >
               <Text >Be one of our first users. The first 2000 travelers who subscribes to our waiting list will receive <span style={{ fontWeight: 'bold' }}>PREMIUM</span> benefits</Text>
             </Flex>
-            {/* <Sal animation='slide-up'> */}
+            <Sal animation='slide-up'>
               <Box
                 style={{
                   position: 'relative',
@@ -71,13 +71,14 @@ const Home: NextPage = () => {
                   maxWidth: 400
                 }}
               >
-              <Image src='/images/iphone-outline.svg' alt='Iphone 13 outline'
+                <Image src='/images/iphone-outline.svg' alt='Iphone 13 outline'
                   width={400} height={450}
                 />
-                <Stack spacing={5} px={20} alignItems='center'
-                  sx={{ top: '35%' }}
+                <Stack spacing={5} p={10}
+                  alignItems='center'
+                  sx={{ top: '30%' }}
                   position='absolute' >
-                  <Input placeholder='First Name' variant='filled' size='lg' />
+                  <Input placeholder='First Name' variant='filled' size='lg' width='320px' />
                   <Input placeholder='Email' variant='filled' size='lg' type='email' />
                   <Button bgColor='brand.primary'
                     color='white'
@@ -85,9 +86,10 @@ const Home: NextPage = () => {
                     maxW={40}>{`Let's go`}</Button>
                 </Stack>
               </Box>
-            {/* </Sal> */}
+            </Sal>
           </Flex>
         </Section>
+
 
         <Section>
           <Text color='brand.darkGray' fontSize='5xl' align='center'
