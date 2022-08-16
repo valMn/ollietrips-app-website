@@ -14,7 +14,7 @@ export const CardQuote: React.FC<Props> = ({ p, children, ...rest }) => {
       borderRadius='2rem' w={600} p={p}
       {...rest}
       sx={{ position: 'relative' }}>
-      <Box sx={{ position: 'absolute', top: -10, left: -10, ['z - index']: '2' }}>
+      <Box sx={{ position: 'absolute', top: -10, left: -10, zIndex: '2' }}>
         <Sal animation='flip-left'>
         <Image src='/icons/quote-mark.svg' alt='Quote Symbol' width='100px' height='100px'
         />

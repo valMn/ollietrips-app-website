@@ -1,19 +1,23 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
+import FutureImage from 'next/future/image';
 import Head from 'next/head';
 import { theme } from '../utils/theme';
 import styles from '../styles/Home.module.css';
 import { creators } from '../data/creators';
 import { hotels } from '../data/hotels';
+import { headerServices } from "../data/headerServices";
 import { Text, Box, Stack, Flex, Heading, Divider, Center } from '@chakra-ui/react';
-import { Section, CardPass, CardStep, CardCreator, CardQuote, CardPartner, Sal } from "../components";
+import { Section, CardPass, CardStep, CardCreator, CardQuote, CardPartner, HeaderService, Sal } from "../components";
 import sal, { Options } from 'sal.js';
 import 'sal.js/dist/sal.css';
 sal({ once: true } as Options);
 
 const Home: NextPage = () => {
   return (
+
     <div className={styles.container}>
+
       <Head>
         <title>Ollie App - An all in one travel app for your dream holiday</title>
         <meta name="description" content="Homepage for Ollie App" />
@@ -28,9 +32,23 @@ const Home: NextPage = () => {
         </h1>
         </Section>
 
+        <Section >
+          <Box
+            sx={{
+              width: '100%', height: '100%',
+              maskImage: 'url(/images/curve-mask.png)',
+              maskSize: '100% 100%'
+            }}>
+            <Flex width='100%' height='100%'
+              justifyContent='center' gap={4}
+            >
+              {headerServices.map((service, i) => <HeaderService key={i} imageSrc={service.imageSrc} label={service.label} />)}
+            </Flex>
+          </Box>
+        </Section>
+
         <Section>
           <Text color='brand.darkGray' fontSize='5xl' align='center'
-            // maxWidth={580}
             fontWeight='bold' pb={14}>
             Your perfect holiday is just a few clicks away.
           </Text>
@@ -148,7 +166,7 @@ const Home: NextPage = () => {
               })}
               <Divider sx={{ border: '3px solid black' }} />
               <Box w='100%' minH='50px' bg='white' ></Box>
-              <Box sx={{ 'pointer-events': 'none' }} w='100%' h='300px' bgGradient='linear(to-t, white 20%, brand.transparent)' position="absolute" bottom={0} />
+              <Box sx={{ pointerEvents: 'none' }} w='100%' h='300px' bgGradient='linear(to-t, white 20%, brand.transparent)' position="absolute" bottom={0} />
             </Stack>
           </Flex>
         </Section>

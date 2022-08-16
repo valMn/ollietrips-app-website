@@ -4,4 +4,5 @@ export { CardPass } from './CardPass';
 export { CardCreator } from './CardCreator';
 export { CardPartner } from './CardPartner';
 export { CardQuote } from './CardQuote';
+export { HeaderService } from './HeaderService';
 export { Sal } from './Sal';
