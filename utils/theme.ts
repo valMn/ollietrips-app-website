@@ -84,11 +84,11 @@ export const theme = {
     widest: "0.1em",
   },
   breakpoints: {
-    sm: "30em",
-    md: "48em",
-    lg: "62em",
-    xl: "80em",
-    "2xl": "96em",
+    sm: "30em", //480px
+    md: "48em", //768px
+    lg: "62em", //992px
+    xl: "80em", //1280px
+    "2xl": "96em", //1536
   },
   radii: {
     none: '0',
