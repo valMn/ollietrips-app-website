@@ -31,8 +31,13 @@ export const CardPass: React.FC<Props> = ({
       p={cardPadding} py={cardPaddingY}>
       <Stack align='center' justify='center' spacing={10} height='100%'>
         < Heading color={textColor} fontWeight={100}>{title}</Heading >
-        <Flex gap={4} justifyContent='center' alignItems='center' color={textColor} >
-          <Heading size='2xl' pr={2}>{percentage}%</Heading>
+          <Flex
+            direction={['column', 'column', 'column', 'column', 'row']}
+            gap={4}
+            justify='center'
+            align='center'
+            color={textColor} >
+            <Heading fontSize={['8xl', '8xl', '8xl', '8xl', '2xl']} pr={2}>{percentage}%</Heading>
           <Heading size='md' fontWeight={400}>Booking fees
             for a lifetime!</Heading>
         </Flex>

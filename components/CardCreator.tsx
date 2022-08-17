@@ -14,8 +14,11 @@ type Props = {
 export const CardCreator: React.FC<Props> = ({ imageSrc, name, linkedInUrl, role, description }) => {
   return (
     <Box bg='brand.ultraLightGray'
-      borderRadius='2rem' w={700} h={300} p={20}>
-      <Flex gap={6}>
+      borderRadius='2rem'
+      maxW={700} w='100%'
+      // maxH={300} h='100%'
+      p={[10, 10, 20]}>
+      <Flex gap={6} direction={['column', 'column', 'row']}>
         <Avatar size='xl' src={imageSrc} name={name} sx={{ 'background': 'none' }} />
         <Stack>
           <Flex align='center' justify='space-between' gap={4}>

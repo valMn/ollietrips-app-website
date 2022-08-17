@@ -7,7 +7,7 @@ import styles from '../styles/Home.module.css';
 import { creators } from '../data/creators';
 import { hotels } from '../data/hotels';
 import { headerServices } from "../data/headerServices";
-import { Text, Box, Stack, Flex, Heading, Divider, Center, Spacer, Input, Button, HStack, Circle } from '@chakra-ui/react';
+import { Text, Box, Stack, Flex, Heading, Divider, Center, Spacer, Input, Button, HStack, Circle, Grid } from '@chakra-ui/react';
 import { Section, CardPass, CardStep, CardCreator, CardQuote, CardPartner, HeaderService, Sal } from "../components";
 import sal, { Options } from 'sal.js';
 import 'sal.js/dist/sal.css';
@@ -146,7 +146,7 @@ const Home: NextPage = () => {
         </Section>
 
         <Section>
-          <Stack direction="row" w='100%' align='center' justify='center' spacing={10}>
+          <Stack direction={['column', 'column', 'row']} w='100%' align='center' justify='center' spacing={10}>
             <CardPass title="Gold Pass" percentage={5} totalQuantity={500} restQuantity={115} ctaLink="#" />
             <CardPass title="Deluxe Pass" percentage={0} totalQuantity={100} restQuantity={37} ctaLink="#" highlighted />
             <CardPass title="Pro Pass" percentage={7} totalQuantity={1000} restQuantity={340} ctaLink="#" />
@@ -204,12 +204,12 @@ const Home: NextPage = () => {
             <Sal animation='slide-up' duration='2000'>
               <Heading size={['3xl', '3xl', '4xl']}>Your favorite Hotels on <span style={{ color: theme.colors.brand.primary }}>Ollie</span></Heading>
             </Sal>
-            <Flex alignItems='center'
-              justifyContent='center' style={{ display: 'flex', gap: 40, flexWrap: 'wrap' }}>
-            {hotels.map((hotel, i) => (
-              <CardPartner key={i} src={hotel} />
-            ))}
-          </Flex>
+
+            <Grid gap={7} templateColumns={['repeat(2,1fr)', 'repeat(2,1fr)', 'repeat(3,1fr)']}>
+              {hotels.map((hotel, i) => (
+                <CardPartner key={i} src={hotel} />
+              ))}
+            </Grid>
           </Flex>
         </Section>
 
