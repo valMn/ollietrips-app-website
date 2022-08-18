@@ -84,11 +84,14 @@ const Home: NextPage = () => {
                   alignItems='center'
                   sx={{ top: '30%' }}
                   position='absolute' >
-                  <Input placeholder='First Name' variant='filled' size='lg' width='320px' />
-                  <Input placeholder='Email' variant='filled' size='lg' type='email' />
+                  <Input placeholder='First Name' variant='filled'
+                    rounded={'full'} size='lg' width='320px' />
+                  <Input placeholder='Email' variant='filled'
+                    rounded={'full'} size='lg' type='email' />
                   <Button bgColor='brand.primary'
                     color='white'
                     size='lg'
+                    rounded={'full'} size='lg'
                     maxW={40}>{`Let's go`}</Button>
                 </Stack>
               </Box>
@@ -242,10 +245,12 @@ const Home: NextPage = () => {
               <Stack flex='2' align='center' spacing={7}>
                 <Heading size='md'>Be the first!</Heading>
                 <Text>Enter Your Email To Get Premium Bonuses</Text>
-                <Input placeholder='Email' variant='filled' size='lg' type='email' />
+                <Input placeholder='Email' variant='filled' size='lg'
+                  rounded='full' type=' email' />
                 <Button bgColor='brand.primary'
                   color='white' colorScheme="whiteAlpha"
                   size='lg' variant='outline'
+                  rounded={'full'}
                   maxW={40}>{`Let's go`}</Button>
               </Stack>
               <Stack flex={[0, 0, 1]}
