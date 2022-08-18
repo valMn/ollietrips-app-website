@@ -17,7 +17,7 @@ export const HeaderService: React.FC<Props> = ({ imageSrc, label }) => {
           maxWidth: '100%', width: '100%', height: '100%'
         }}
         src={`/images/${imageSrc}.png`} alt={label} />
-      <Heading size='md' fontWeight='medium' color='white'
+      <Heading size={['xs', 'sm', 'md',]} fontWeight='medium' color='white'
         sx={{
           position: 'absolute',
           top: '50%',

@@ -32,10 +32,13 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
 
-        <Section height={100} primaryBg>
-        <h1 className={styles.title}>
-            Welcome to <a href="#">OllieApp</a>
-        </h1>
+        <Section>
+          <Sal animation='slide-up' duration='1200' delay='300'>
+            <Stack textAlign='center'>
+              <Heading size='lg' pb={10}>Plan your dream vacation with the speed of light</Heading >
+              <Text >Everything you need for a perfect holiday in one <span style={{ fontWeight: 'bold' }}>app</span></Text>
+            </Stack>
+          </Sal>
         </Section>
 
         <Section hero fullWidth>
@@ -57,13 +60,13 @@ const Home: NextPage = () => {
         <Section primaryBg hero>
           <Flex direction={['column', 'column', 'row']}
             justifyContent='space-between'
-            alignItems='center'
+            alignItems='center' gap={10}
           >
 
             <Flex direction='column' align='center' justify='center'
               maxW={['100%', 400]} color='white' h='auto'
             >
-              <Heading size='lg' pb={10}>Just join now and start saving tomorrow!</Heading >
+              <Heading size='lg' pb={10}>Get up to 20% discount on your first reservation!</Heading >
               <Text >Be one of our first users. The first 2000 travelers who subscribes to our waiting list will receive <span style={{ fontWeight: 'bold' }}>PREMIUM</span> benefits</Text>
             </Flex>
             <Sal animation='slide-up'>
@@ -74,20 +77,23 @@ const Home: NextPage = () => {
                   justifyContent: 'center',
                   bottom: -20,
                   height: '100%',
-                  maxWidth: 400
+                  width: '100%'
+                  // maxWidth: 400
                 }}
               >
                 <Image src='/images/iphone-outline.svg' alt='Iphone 13 outline'
-                  width={400} height={450}
+                  width={400}
+                  height={450}
                 />
-                <Stack spacing={5} p={10}
+                <Stack spacing={[5, 5, 8]}
+                  px={10} w='100%'
                   alignItems='center'
                   sx={{ top: '30%' }}
                   position='absolute' >
                   <Input placeholder='First Name' variant='filled'
-                    rounded={'full'} size='lg' width='320px' />
+                    rounded={'full'} size='lg' width='100%' />
                   <Input placeholder='Email' variant='filled'
-                    rounded={'full'} size='lg' type='email' />
+                    rounded={'full'} size='lg' width='100%' type='email' />
                   <Button bgColor='brand.primary'
                     color='white'
                     rounded={'full'} size='lg'
@@ -146,10 +152,12 @@ const Home: NextPage = () => {
         </Section>
 
         <Section>
-          <Stack direction={['column', 'column', 'row']} w='100%' align='center' justify='center' spacing={10}>
-            <CardPass title="Gold Pass" percentage={5} totalQuantity={500} restQuantity={115} ctaLink="#" />
-            <CardPass title="Deluxe Pass" percentage={0} totalQuantity={100} restQuantity={37} ctaLink="#" highlighted />
-            <CardPass title="Pro Pass" percentage={7} totalQuantity={1000} restQuantity={340} ctaLink="#" />
+          <Stack direction={['column', 'column', 'column', 'row']} w='100%' align='center' justify='center' spacing={[8, 8, 8, 8, 12]}>
+            <CardPass title="Gold Pass" percentage={5} totalQuantity={500} restQuantity={115} ctaLink="#" passPrice={499} passDescription={`If you are subscribed to the Gold Subs. Plan you only pay 5% booking fees and you are saving Almost 55% saved on booking fees compared to a free version of Ollie.`} />
+
+            <CardPass title="Deluxe Pass" percentage={0} totalQuantity={100} restQuantity={37} ctaLink="#" highlighted passPrice={997} passDescription={`If you are subscribed to the Deluxe Subs. Plan you pay 0% booking fees and you are saving €400. What if you are spending €10.000 on travel annually? You are saving €2000 already in the first year! It’s a no-brainer, right?`} />
+
+            <CardPass title="Pro Pass" percentage={7} totalQuantity={1000} restQuantity={340} ctaLink="#" passPrice={199} passDescription={`However, if you are subscribed to the Pro Subs. Plan you only pay 7% booking fees and you are saving. Almost 37% saved on booking fees compared to a free version of Ollie. With just €3000 of travel, you get your invested money back.`} />
           </Stack>
         </Section>
 
@@ -165,8 +173,7 @@ const Home: NextPage = () => {
             <Stack flex='2'>
               <Heading size='md' pb='4'>How much can you save with our Lifetime Passes? </Heading >
               <Sal animation='slide-right' inline>
-              <Text>{`Let’s imagine that you are spending around €2000 on travel in a year:
-                While another booking platforms are charging between 14% and 30% booking fees, Ollie only charges 11-12%.
+                <Text>{`Let’s imagine that you are spending around €2000 on travel per year. While other booking platforms are charging between 14% and 30% booking fees, Ollie only charges 11-12%.
                 If you use the Ollie free account you are saving on average €100 on your annual plan.`}
               </Text>
               </Sal>
@@ -185,7 +192,7 @@ const Home: NextPage = () => {
 
         <Section>
           <Flex justifyContent='center'>
-            <CardQuote padding='20'>
+            <CardQuote padding={[10, 10, 20]}>
               <Text>{`You don't need 100 apps to check the best travel deals, you only need one. `}</Text>
               <Heading size='md' pt='2'>Ollie</Heading >
             </CardQuote>
@@ -255,11 +262,11 @@ const Home: NextPage = () => {
                 spacing={6}>
                 <Heading size='md'>Contact</Heading>
                 <Text>Bucharest, RO</Text>
-                <a href='mailto:info@ollieapp.travel' >
-                  <span style={{ textDecoration: 'underline' }}>info@ollieapp.travel</span>
+                <a href='mailto:aloha@ollieapp.travel' >
+                  <span style={{ textDecoration: 'underline' }}>aloha@ollieapp.travel</span>
                 </a>
                 <HStack>
-                  <a href='#'>
+                  <a href='https://www.linkedin.com/company/ollie-travel-engine/'>
                     <Circle
                       bg='white'
                       color='brand.primary'

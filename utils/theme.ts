@@ -2,6 +2,7 @@ export const theme = {
   colors: {
     brand: {
       primary: "#3498FE",
+      accent1: '#DBFF00', 
       transparent: "rgba(0,0,0,0.001)",
       darkGray: '#1F1E1E',
       mediumGray: '#6F6F6F',
