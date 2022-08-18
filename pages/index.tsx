@@ -90,7 +90,6 @@ const Home: NextPage = () => {
                     rounded={'full'} size='lg' type='email' />
                   <Button bgColor='brand.primary'
                     color='white'
-                    size='lg'
                     rounded={'full'} size='lg'
                     maxW={40}>{`Let's go`}</Button>
                 </Stack>
@@ -114,13 +113,11 @@ const Home: NextPage = () => {
         </Section>
 
         <Section>
-          {/* <Flex> */}
           <Sal animation='slide-left'>
             <Heading size={['xl', '4xl']} color='brand.darkGray'
               flex={[0, 2]}>Travel more, for less money</Heading>
           </Sal>
           <Box flex={[0, 1, 2]} w='100%'></Box>
-          {/* </Flex> */}
         </Section>
 
         <Section>
