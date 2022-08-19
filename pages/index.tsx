@@ -35,10 +35,6 @@ const Home: NextPage = () => {
       <main className={styles.main}>
 
         <Section>
-          <NewsletterSubscribe></NewsletterSubscribe>
-        </Section>
-
-        <Section>
           <Sal animation='slide-up' duration='1200' delay='300'>
             <Stack textAlign='center'>
               <Heading size='lg' pb={10}>Plan your dream vacation with the speed of light</Heading >
@@ -76,6 +72,7 @@ const Home: NextPage = () => {
               <Text >Be one of our first users. The first 2000 travelers who subscribes to our waiting list will receive <span style={{ fontWeight: 'bold' }}>PREMIUM</span> benefits</Text>
             </Flex>
             <Sal animation='slide-up'>
+              <form>
               <Box
                 sx={{
                   position: 'relative',
@@ -96,16 +93,22 @@ const Home: NextPage = () => {
                   alignItems='center'
                   sx={{ top: '30%' }}
                   position='absolute' >
-                  <Input placeholder='First Name' variant='filled'
-                    rounded={'full'} size='lg' width='100%' />
-                  <Input placeholder='Email' variant='filled'
-                    rounded={'full'} size='lg' width='100%' type='email' />
-                  <Button bgColor='brand.primary'
-                    color='white'
-                    rounded={'full'} size='lg'
-                    maxW={40}>{`Let's go`}</Button>
+
+                    <NewsletterSubscribe
+                      inputProps={{
+                        variant: 'filled', rounded: 'full',
+                        size: 'lg', width: '100%',
+                        mb: [5, 5, 8]
+                      }}
+                      buttonProps={{
+                        bgColor: 'brand.primary', color: 'white',
+                        rounded: 'full', size: 'lg', maxW: 40, my: 'auto',
+                        label: 'Let\'s go'
+                      }} />
+
                 </Stack>
               </Box>
+              </form>
             </Sal>
           </Flex>
         </Section>
@@ -254,14 +257,20 @@ const Home: NextPage = () => {
               <Box flex={[0, 0, 1]}></Box>
               <Stack flex='2' align='center' spacing={7}>
                 <Heading size='md'>Be the first!</Heading>
-                <Text>Enter Your Email To Get Premium Bonuses</Text>
-                <Input placeholder='Email' variant='filled' size='lg'
-                  rounded='full' type=' email' />
-                <Button bgColor='brand.primary'
-                  color='white' colorScheme="whiteAlpha"
-                  size='lg' variant='outline'
-                  rounded={'full'}
-                  maxW={40}>{`Let's go`}</Button>
+                <Text>Enter Your Details To Get Premium Bonuses</Text>
+
+                <NewsletterSubscribe
+                  inputProps={{
+                    variant: 'filled', rounded: 'full',
+                    size: 'lg',
+                    mb: [5, 5, 8]
+                  }}
+                  buttonProps={{
+                    bgColor: 'brand.primary', color: 'white', variant: 'outline',
+                    rounded: 'full', size: 'lg', maxW: 40, my: 'auto', colorScheme: "whiteAlpha",
+                    label: 'Get Bonuses'
+                  }} />
+
               </Stack>
               <Stack flex={[0, 0, 1]}
                 alignItems={['center', 'cener', 'flex-start']}

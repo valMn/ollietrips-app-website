@@ -1,7 +1,13 @@
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
 import { NewsletterForm } from './NewsletterForm';
+import React from 'react';
 
-export const NewsletterSubscribe = () => {
+type Props = {
+  inputProps: {};
+  buttonProps: any;
+};
+
+export const NewsletterSubscribe = ({ inputProps, buttonProps }: Props) => {
 
   const MAILCHIMP_URL = process.env.NEXT_PUBLIC_MAILCHIMP_URL;
 
@@ -14,7 +20,9 @@ export const NewsletterSubscribe = () => {
           <NewsletterForm
             status={status}
             message={message}
-            onValidated={formData => subscribe(formData)}
+            buttonProps={buttonProps}
+            inputProps={inputProps}
+            onValidated={(formData): any => subscribe(formData)}
           />
         );
       }}
