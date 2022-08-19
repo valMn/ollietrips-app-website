@@ -8,7 +8,7 @@ import { creators } from '../data/creators';
 import { hotels } from '../data/hotels';
 import { headerServices } from "../data/headerServices";
 import { Text, Box, Stack, Flex, Heading, Divider, Center, Spacer, Input, Button, HStack, Circle, Grid } from '@chakra-ui/react';
-import { Section, CardPass, CardStep, CardCreator, CardQuote, CardPartner, HeaderService, Sal } from "../components";
+import { Section, CardPass, CardStep, CardCreator, CardQuote, CardPartner, HeaderService, Sal, NewsletterSubscribe } from "../components";
 import sal, { Options } from 'sal.js';
 import 'sal.js/dist/sal.css';
 import Link from "next/link";
@@ -18,6 +18,8 @@ import { FiInstagram } from 'react-icons/fi';
 import { FiTwitter } from 'react-icons/fi';
 
 sal({ once: true } as Options);
+
+
 
 const Home: NextPage = () => {
   return (
@@ -31,6 +33,10 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
+
+        <Section>
+          <NewsletterSubscribe></NewsletterSubscribe>
+        </Section>
 
         <Section>
           <Sal animation='slide-up' duration='1200' delay='300'>

@@ -5,4 +5,6 @@ export { CardCreator } from './CardCreator';
 export { CardPartner } from './CardPartner';
 export { CardQuote } from './CardQuote';
 export { HeaderService } from './HeaderService';
+export { NewsletterSubscribe } from './NewsletterSubscribe';
+export { NewsletterForm } from './NewsletterForm';
 export { Sal } from './Sal';
