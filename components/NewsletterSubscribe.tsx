@@ -9,7 +9,7 @@ type Props = {
 
 export const NewsletterSubscribe = ({ inputProps, buttonProps }: Props) => {
 
-  const MAILCHIMP_URL = process.env.NEXT_PUBLIC_MAILCHIMP_URL;
+  const MAILCHIMP_URL = 'https://ollieapp.us17.list-manage.com/subscribe/post?u=ac506f0fffdedcff6f440d0f1&amp;id=48c9318fc1&amp;f_id=006644e0f0'
 
   return (
     <MailchimpSubscribe
