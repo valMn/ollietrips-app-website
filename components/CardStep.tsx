@@ -15,9 +15,12 @@ export const CardStep: React.FC<Props> = ({ imageSrc, stepNumber, title, subtitl
     <Box {...rest} flex={1} alignSelf='flex-start' w='100%'>
       <Stack align='center' pb={3} w='100%'>
         <Image src={imageSrc} alt={`Step ${stepNumber}`}
-          width={270} height={546} />
+          width={240}
+          height={500}
+          layout='intrinsic'
+        />
         <Sal animation='slide-up' duration='1200' delay='300'>
-          <Stack direction={['row', 'row', 'column', 'row']} pt={25}
+          <Stack direction={['row', 'row', 'column', 'row']} pt={5}
             alignItems={['center', 'center', 'flex-start']} justifyContent={['center', 'flex-start']}>
             <Sal animation='slide-left'>
               <Heading color='brand.lightGray' fontSize={['6xl', '7xl', '6xl']}

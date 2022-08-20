@@ -5,6 +5,8 @@ import {
   // ModalHeader, ModalFooter, ModalBody,
   ModalCloseButton
 } from '@chakra-ui/react';
+import { Link } from '@chakra-ui/react';
+import { ExternalLinkIcon } from '@chakra-ui/icons'
 // import Link from "next/link";
 import Sal from "./Sal";
 
@@ -15,23 +17,20 @@ type Props = {
   restQuantity: number;
   passPrice: number;
   passDescription: string;
-  ctaLink: string;
+  paymentLink: string;
   highlighted?: boolean;
 };
 
 export const CardPass: React.FC<Props> = ({
   title, percentage = 0, totalQuantity, restQuantity,
-  ctaLink, passPrice, passDescription, highlighted = false, }) => {
+  paymentLink, passPrice, passDescription, highlighted = false, }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-
 
   const textColor = highlighted ? 'white' : 'brand.darkGray';
   const reverseTextColor = highlighted ? 'brand.darkGray' : 'white';
   const bgColor = highlighted ? 'white' : 'brand.primary';
   const cardPadding = highlighted ? [10, 12, 12, 16] : [6, 8, 10];
-  const cardPaddingY = highlighted ? 24 : '';
-
-
+  const cardPaddingY = highlighted ? [10, 16, 20] : '';
 
   return (
     <>
@@ -94,7 +93,7 @@ export const CardPass: React.FC<Props> = ({
           shadow='2xl' borderWidth='1px'
           borderRadius='2rem' display='flex' alignItems='center'
           bg={highlighted ? 'brand.primary' : 'white'}
-          p={cardPadding} py={[16, 16, 20, 40]}
+          p={cardPadding} py={[16, 16, 20]}
         >
           <ModalCloseButton rounded={'full'} sx={{
             position: 'absolute',
@@ -113,7 +112,7 @@ export const CardPass: React.FC<Props> = ({
               gap={4}
               justify='center'
               align='center'
-              maxW={240}
+              maxW={[240, 260, 260, 260, 240]}
               color={textColor} >
               <Heading
                 fontSize={['6xl', '5xl', '6xll', '6xl', '5xl']} pr={2}>{percentage}%</Heading>
@@ -132,13 +131,15 @@ export const CardPass: React.FC<Props> = ({
                 {passDescription}
               </Text>
             </Stack >
-            <Button rounded={'full'} size='lg'
+            <Link href={paymentLink} isExternal onClick={onClose}>
+              <Button rounded={'full'} size='lg' leftIcon={<ExternalLinkIcon />}
               color={highlighted ? 'brand.primary' : 'white'}
               bg={highlighted ? 'white' : 'brand.primary'}
               w='100%'
               _hover={{ background: 'brand.lightgray' }}
               variant={highlighted ? 'solid' : 'solid'}
-              onClick={onOpen}>Buy {title} here!</Button>
+              >Buy {title} here!</Button>
+            </Link>
           </Stack>
         </ModalContent>
       </Modal>

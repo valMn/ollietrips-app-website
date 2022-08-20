@@ -7,11 +7,14 @@ import styles from '../styles/Home.module.css';
 import { creators } from '../data/creators';
 import { hotels } from '../data/hotels';
 import { headerServices } from "../data/headerServices";
-import { Text, Box, Stack, Flex, Heading, Divider, Center, Spacer, Input, Button, HStack, Circle, Grid } from '@chakra-ui/react';
+import {
+  Text, Box, Stack, Flex, Heading, Divider, Link,
+  Center, Spacer, Input, Button, HStack, Circle, Grid
+} from '@chakra-ui/react';
 import { Section, CardPass, CardStep, CardCreator, CardQuote, CardPartner, HeaderService, Sal, NewsletterSubscribe } from "../components";
 import sal, { Options } from 'sal.js';
 import 'sal.js/dist/sal.css';
-import Link from "next/link";
+// import Link from "next/link";
 import { FiLinkedin } from 'react-icons/fi';
 import { FiFacebook } from 'react-icons/fi';
 import { FiInstagram } from 'react-icons/fi';
@@ -19,12 +22,19 @@ import { FiTwitter } from 'react-icons/fi';
 
 sal({ once: true } as Options);
 
-
+const navLinks = [{
+  label: 'About',
+  link: '#about'
+}, {
+  label: 'Partners',
+  link: '#partners'
+}, {
+  label: 'Team',
+  link: '#team'
+}]
 
 const Home: NextPage = () => {
-  return (
-
-    <div className={styles.container}>
+  return (<>
 
       <Head>
         <title>Ollie App - An all in one travel app for your dream holiday</title>
@@ -32,12 +42,25 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+    <main className={styles.container}>
+      <Section hero style={{ padding: '10px 0' }}>
+        <nav>
+          <Flex align='center' gap={8}>
+            <Image src='/ollie-logo.svg' alt='Ollie logo'
+              height={45} width={45}
+            />
+            {navLinks.map(link => <Link
+              _hover={{ textDecoration: 'underline' }}
+              key={link.label}
+              href={link.link}>{link.label}</Link>)}
+          </Flex>
+        </nav>
+      </Section>
 
         <Section>
           <Sal animation='slide-up' duration='1200' delay='300'>
             <Stack textAlign='center'>
-              <Heading size='lg' pb={10}>Plan your dream vacation with the speed of light</Heading >
+            <Heading size='lg' pb={10}>Plan your dream vacation at the speed of light</Heading >
               <Text >Everything you need for a perfect holiday in one <span style={{ fontWeight: 'bold' }}>app</span></Text>
             </Stack>
           </Sal>
@@ -81,14 +104,13 @@ const Home: NextPage = () => {
                   bottom: -20,
                   height: '100%',
                   width: '100%'
-                  // maxWidth: 400
                 }}
               >
                 <Image src='/images/iphone-outline.svg' alt='Iphone 13 outline'
                   width={400}
                   height={450}
                 />
-                <Stack spacing={[5, 5, 8]}
+                <Stack spacing={7}
                   px={10} w='100%'
                   alignItems='center'
                   sx={{ top: '30%' }}
@@ -98,7 +120,7 @@ const Home: NextPage = () => {
                       inputProps={{
                         variant: 'filled', rounded: 'full',
                         size: 'lg', width: '100%',
-                        mb: [5, 5, 8]
+                      mb: 2
                       }}
                       buttonProps={{
                         bgColor: 'brand.primary', color: 'white',
@@ -114,7 +136,7 @@ const Home: NextPage = () => {
         </Section>
 
 
-        <Section>
+      <Section id='about'>
           <Heading color='brand.darkGray' fontSize={['4xl', '4xl', '5xl', '6xl']} textAlign='center' fontWeight='bold' pb={14}>
             Your perfect holiday is just a few clicks away.
           </Heading>
@@ -162,11 +184,11 @@ const Home: NextPage = () => {
 
         <Section>
           <Stack direction={['column', 'column', 'column', 'row']} w='100%' align='center' justify='center' spacing={[8, 8, 8, 8, 12]}>
-            <CardPass title="Gold Pass" percentage={5} totalQuantity={500} restQuantity={115} ctaLink="#" passPrice={499} passDescription={`If you are subscribed to the Gold Subs. Plan you only pay 5% booking fees and you are saving Almost 55% saved on booking fees compared to a free version of Ollie.`} />
+          <CardPass title="Gold Pass" percentage={5} totalQuantity={500} restQuantity={115} paymentLink="https://buy.stripe.com/test_8wM6sk23N3em2wUeUU" passPrice={499} passDescription={`If you are subscribed to the Gold Subs. Plan you only pay 5% booking fees and you are saving Almost 55% saved on booking fees compared to a free version of Ollie.`} />
 
-            <CardPass title="Deluxe Pass" percentage={0} totalQuantity={100} restQuantity={37} ctaLink="#" highlighted passPrice={997} passDescription={`If you are subscribed to the Deluxe Subs. Plan you pay 0% booking fees and you are saving €400. What if you are spending €10.000 on travel annually? You are saving €2000 already in the first year! It’s a no-brainer, right?`} />
+          <CardPass title="Deluxe Pass" percentage={0} totalQuantity={100} restQuantity={37} paymentLink="#" highlighted passPrice={997} passDescription={`If you are subscribed to the Deluxe Subs. Plan you pay 0% booking fees and you are saving €400. What if you are spending €10.000 on travel annually? You are saving €2000 already in the first year! It’s a no-brainer, right?`} />
 
-            <CardPass title="Pro Pass" percentage={7} totalQuantity={1000} restQuantity={340} ctaLink="#" passPrice={199} passDescription={`However, if you are subscribed to the Pro Subs. Plan you only pay 7% booking fees and you are saving. Almost 37% saved on booking fees compared to a free version of Ollie. With just €3000 of travel, you get your invested money back.`} />
+          <CardPass title="Pro Pass" percentage={7} totalQuantity={1000} restQuantity={340} paymentLink="https://buy.stripe.com/test_fZe6sk6k3aGO7ReaEG" passPrice={199} passDescription={`However, if you are subscribed to the Pro Subs. Plan you only pay 7% booking fees and you are saving. Almost 37% saved on booking fees compared to a free version of Ollie. With just €3000 of travel, you get your invested money back.`} />
           </Stack>
         </Section>
 
@@ -215,7 +237,7 @@ const Home: NextPage = () => {
           </Flex>
         </Section>
 
-        <Section>
+      <Section id='partners'>
           <Flex direction='column' gap={20}>
             <Sal animation='slide-up' duration='2000'>
               <Heading size={['3xl', '3xl', '4xl']}>Your favorite Hotels on <span style={{ color: theme.colors.brand.primary }}>Ollie</span></Heading>
@@ -229,7 +251,7 @@ const Home: NextPage = () => {
           </Flex>
         </Section>
 
-        <Section>
+      <Section id='team'>
           <Flex direction={['column', 'column', 'row']} width='100%' align='flex-start' justify='space-between' gap={6}
             position='relative'>
             <Box maxW={300}>
@@ -253,9 +275,18 @@ const Home: NextPage = () => {
           style={{ borderRadius: '40px 40px 0 0' }}>
           <footer>
             <Flex color='white' width='100%s' gap={16}
+            align='flex-start' justify='center'
               direction={['column', 'column', 'row']}>
-              <Box flex={[0, 0, 1]}></Box>
-              <Stack flex='2' align='center' spacing={7}>
+            <Stack flex={[0, 0, 1]} display={['none', 'none', 'flex']} spacing={6} alignItems='end'>
+              <Heading size='md'>Site map</Heading>
+
+              {navLinks.map(link => <Link key={link.label}
+                href={link.link}>{link.label}</Link>)}
+
+            </Stack>
+            <Stack flex='2' align='center'
+              width='100%' maxW={500} spacing={7}>
+
                 <Heading size='md'>Be the first!</Heading>
                 <Text>Enter Your Details To Get Premium Bonuses</Text>
 
@@ -272,7 +303,7 @@ const Home: NextPage = () => {
                   }} />
 
               </Stack>
-              <Stack flex={[0, 0, 1]}
+            <Stack flex={[0, 0, 1]} 
                 alignItems={['center', 'cener', 'flex-start']}
                 spacing={6}>
                 <Heading size='md'>Contact</Heading>
@@ -281,14 +312,14 @@ const Home: NextPage = () => {
                   <span style={{ textDecoration: 'underline' }}>aloha@ollieapp.travel</span>
                 </a>
                 <HStack>
-                  <a href='https://www.linkedin.com/company/ollie-travel-engine/'>
+                <a href='https://www.linkedin.com/company/ollie-travel-engine/' target='_blank' rel="noreferrer" >
                     <Circle
                       bg='white'
                       color='brand.primary'
                       p={2}
                     ><FiLinkedin /></Circle>
                   </a>
-                  <a href='#'>
+                {/* <a href='#'>
                     <Circle
                       bg='white'
                       color='brand.primary'
@@ -308,7 +339,7 @@ const Home: NextPage = () => {
                       color='brand.primary'
                       p={2}
                     ><FiTwitter /></Circle>
-                  </a>
+                  </a> */}
                 </HStack>
               </Stack>
             </Flex>
@@ -316,8 +347,7 @@ const Home: NextPage = () => {
         </Section >
 
       </main>
-    </div>
-  );
-};
+  </>);
+}
 
 export default Home;

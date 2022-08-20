@@ -114,13 +114,11 @@ export const NewsletterForm = ({ status, message, onValidated, buttonProps, inpu
       }
       {!formWasSubmitted && status === 'success' && <Alert status='success' rounded='full'>
         <AlertIcon />
-        <AlertTitle>Details submitted.</AlertTitle>
-        <AlertDescription ></AlertDescription>
+        <AlertDescription >Details submitted. Nice!</AlertDescription>
       </Alert>}
       {error && <Alert status='error' rounded='full'>
         <AlertIcon />
-        <AlertTitle >Fill in both fields</AlertTitle>
-        <AlertDescription ></AlertDescription>
+        <AlertDescription >Both fields are required.</AlertDescription>
       </Alert>}
     </>
   );
