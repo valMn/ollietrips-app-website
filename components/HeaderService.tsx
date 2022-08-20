@@ -11,12 +11,17 @@ type Props = {
 export const HeaderService: React.FC<Props> = ({ imageSrc, label }) => {
   return (
     <Box w='100%' h='auto' position='relative'>
-      <FutureImage priority width={100} height={100}
+      <FutureImage
+        priority
+        width={250}
+        height={250}
         style={{
           backgroundSize: '150% 150%',
-          maxWidth: '100%', width: '100%', height: '100%'
+          maxWidth: '400px',
+          width: '100%',
+          height: '100%'
         }}
-        src={`/images/${imageSrc}.png`} alt={label} />
+        src={`/images/${imageSrc}.jpg`} alt={label} />
       <Heading size={['xs', 'sm', 'md',]} fontWeight='medium' color='white'
         sx={{
           position: 'absolute',

@@ -60,7 +60,7 @@ const Home: NextPage = () => {
         <Section>
           <Sal animation='slide-up' duration='1200' delay='300'>
             <Stack textAlign='center'>
-            <Heading size='lg' pb={10}>Plan your dream vacation at the speed of light</Heading >
+            <Heading size='lg' pb={6}>Plan your dream vacation at the speed of light</Heading >
               <Text >Everything you need for a perfect holiday in one <span style={{ fontWeight: 'bold' }}>app</span></Text>
             </Stack>
           </Sal>
