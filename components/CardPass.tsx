@@ -6,7 +6,7 @@ import {
   ModalCloseButton
 } from '@chakra-ui/react';
 import { Link } from '@chakra-ui/react';
-import { ExternalLinkIcon } from '@chakra-ui/icons'
+// import { ExternalLinkIcon } from '@chakra-ui/icons's
 // import Link from "next/link";
 import Sal from "./Sal";
 
@@ -36,12 +36,12 @@ export const CardPass: React.FC<Props> = ({
     <>
     <Sal animation='slide-up'>
     <Box w="100%" h="100%"
-      shadow='xl' borderWidth='2px'
+          shadow='xl' borderWidth={highlighted ? 0 : 2}
       borderRadius='2rem' display='flex' alignItems='center'
       bg={highlighted ? 'brand.primary' : ''}
           p={cardPadding} py={cardPaddingY}
         >
-          <Stack align='center' justify='center' spacing={[4, 4, 6, 8]} height='100%' width={[null, null, '100%']}>
+          <Stack align='center' justify='center' spacing={[4, 4, 6, 10]} height='100%' width={[null, null, '100%']}>
             < Heading color={textColor} fontWeight={100} textAlign="center">{title}</Heading >
           <Flex
             direction={['column', 'column', 'column', 'column', 'row']}
@@ -53,31 +53,21 @@ export const CardPass: React.FC<Props> = ({
               <Heading fontSize={['8xl', '8xl', '8xl', '6xl', '4xl']} pr={2}>{percentage}%</Heading>
           <Heading size='md' fontWeight={400}>Booking fees
             for a lifetime!</Heading>
-        </Flex>
+            </Flex>
+            <Center height='10px' width='50px'>
+              <Divider size='lg' bg={bgColor} orientation='horizontal' borderWidth={1} />
+            </Center>
             <Tag size='md' bg={highlighted ? 'brand.accent1' : 'cyan.500'}>
-          <Text color={reverseTextColor}>
-            {totalQuantity} pieces
-          </Text>
-        </Tag>
-        <Center height='10px' width='50px'>
-          <Divider size='lg' bg={bgColor} orientation='horizontal' borderWidth={1} />
-        </Center>
-        <Stack color={textColor}>
-          <Stack direction='row' align='center' justify='center'>
-            <Text fontWeight='bold'>{restQuantity}
-            </Text>
-            <Text>
-              pieces left
-            </Text>
-          </Stack>
-              <Text textAlign='center'>
-            {`Buy before it' s too late!`}
-          </Text>
-        </Stack >
+              <Text color={reverseTextColor}> Only {totalQuantity} pieces</Text>
+            </Tag>
+            {/* <Stack direction='row' align='center' justify='center' fontSize='lg' color={textColor}>
+              <Text fontWeight='bold'>{restQuantity}</Text>
+              <Text>pieces left</Text>
+            </Stack > */}
             <Button rounded={'full'} size='lg'
               bg='white' color={highlighted ? 'brand.primary' : 'brand.darkGray'}
               _hover={{ backgroundColor: 'brand.lightgray' }}
-              variant={highlighted ? 'solid' : 'solid'}
+              variant={highlighted ? 'solid' : 'outline'}
               onClick={onOpen}>Learn More</Button>
           </Stack>
         </Box >
@@ -90,7 +80,7 @@ export const CardPass: React.FC<Props> = ({
 
         <ModalContent
           w="100%" maxW={850} mx={4}
-          shadow='2xl' borderWidth='1px'
+          shadow='2xl' borderWidth={highlighted ? 0 : 1}
           borderRadius='2rem' display='flex' alignItems='center'
           bg={highlighted ? 'brand.primary' : 'white'}
           p={cardPadding} py={[16, 16, 20]}
@@ -132,7 +122,7 @@ export const CardPass: React.FC<Props> = ({
               </Text>
             </Stack >
             <Link href={paymentLink} isExternal onClick={onClose}>
-              <Button rounded={'full'} size='lg' leftIcon={<ExternalLinkIcon />}
+              <Button rounded={'full'} size='lg'
               color={highlighted ? 'brand.primary' : 'white'}
               bg={highlighted ? 'white' : 'brand.primary'}
               w='100%'

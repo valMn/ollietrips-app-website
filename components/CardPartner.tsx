@@ -14,7 +14,7 @@ export const CardPartner: React.FC<Props> = ({ src, ...rest }) => {
       < Flex sx={{ opacity: 0.5 }}
         w='100%' h='100%' 
         align='center' justify='center' >
-        <Image src={`/logos/hotels/${src}.svg`} alt={src} width={200} height={200} />
+        <Image src={`/logos/hotels/${src}.svg`} alt={src} width={120} height={120} />
       </Flex >
     </GridItem >);
 };

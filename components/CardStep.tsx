@@ -32,7 +32,7 @@ export const CardStep: React.FC<Props> = ({ imageSrc, stepNumber, title, subtitl
               maxW={[300, 300, '100%']} fontWeight='extrabold' pt={3}>{title}</Heading>
         </Stack>
         </Sal>
-        <Text textAlign={['center', 'center', 'start']} color='brand.mediumGray' maxW={[400, 600, '100%']}>{subtitle}</Text>
+        <Text textAlign={['center', 'center', 'start']} color='brand.mediumGray' maxW={[400, 400, '100%']} pt={[5]}>{subtitle}</Text>
       </Stack>
     </Box>);
 };

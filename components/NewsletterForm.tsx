@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import {
   Button, Input, FormErrorMessage, Alert,
-  AlertIcon, AlertTitle, AlertDescription
+  AlertIcon, AlertTitle, AlertDescription, FormControl, FormLabel, FormHelperText
 } from "@chakra-ui/react";
+import { stringify } from "querystring";
 
 type Props = {
   status: 'success' | 'error' | 'sending' | null;
@@ -13,9 +14,10 @@ type Props = {
 };
 
 export const NewsletterForm = ({ status, message, onValidated, buttonProps, inputProps }: Props) => {
+  type ErrorProps = { email?: string, firstName?: string; }
 
   const [formWasSubmitted, setFormWasSubmitted] = useState(false)
-  const [error, setError] = useState('');
+  const [error, setError] = useState<ErrorProps>({ email: '', firstName: '' });
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
 
@@ -39,17 +41,19 @@ export const NewsletterForm = ({ status, message, onValidated, buttonProps, inpu
    *
    * @return {{value}|*|boolean|null}
    */
-  const handleFormSubmit = (e?: React.SyntheticEvent) => {
-    e && e.preventDefault();
-    setError('');
+  const handleFormSubmit = (event?: React.SyntheticEvent) => {
+    event && event.preventDefault();
+    setError({});
 
-    if (!email) {
-      setError('Please enter a valid email address');
+    if (!firstName) {
+      setError({
+        firstName: 'Please enter your first name'
+      });
       return null;
     }
 
-    if (!firstName) {
-      setError('Please enter your first name');
+    if (!email) {
+      setError({ email: 'Please enter a valid email address' });
       return null;
     }
 
@@ -64,7 +68,7 @@ export const NewsletterForm = ({ status, message, onValidated, buttonProps, inpu
    * @param event
    */
   const handleInputKeyEvent = (event: React.KeyboardEvent) => {
-    setError('');
+    // setError({});
     // Number 13 is the "Enter" key on the keyboard
     if (event.keyCode === 13) {
       // Cancel the default action, if needed
@@ -93,17 +97,23 @@ export const NewsletterForm = ({ status, message, onValidated, buttonProps, inpu
   return (
     <>
       {inputProps && <>
+        <FormControl isInvalid={error.firstName}>
         <Input {...inputProps}
           value={firstName}
           onChange={(event) => setFirstName(event?.target?.value ?? '')}
           onKeyUp={(event) => handleInputKeyEvent(event)}
           placeholder='First Name' type='text' />
+          <FormErrorMessage>{error.firstName}</FormErrorMessage>
+        </FormControl>
+
+        <FormControl isInvalid={error.email}>
         <Input {...inputProps}
           value={email}
           onChange={(event) => setEmail(event?.target?.value ?? '')}
           onKeyUp={(event) => handleInputKeyEvent(event)}
           placeholder='Your Email' type='email' />
-        {error && <FormErrorMessage>{error}</FormErrorMessage>}
+          <FormErrorMessage>{error.email}</FormErrorMessage>
+        </FormControl>
       </>}
       {buttonProps &&
         <Button {...buttonProps}
@@ -112,14 +122,32 @@ export const NewsletterForm = ({ status, message, onValidated, buttonProps, inpu
         >{buttonProps.label}
         </Button>
       }
-      {!formWasSubmitted && status === 'success' && <Alert status='success' rounded='full'>
-        <AlertIcon />
-        <AlertDescription >Details submitted. Nice!</AlertDescription>
-      </Alert>}
-      {error && <Alert status='error' rounded='full'>
-        <AlertIcon />
-        <AlertDescription >Both fields are required.</AlertDescription>
-      </Alert>}
+      {!formWasSubmitted && status === 'success' &&
+        <Alert status='success' rounded='full'>
+          <AlertIcon />
+          <AlertDescription >Details submitted. Nice!</AlertDescription>
+        </Alert>}
     </>
   );
 };
+
+function ErrorMessageExample() {
+  const [input, setInput] = useState('');
+
+  const handleInputChange = (e) => setInput(e.target.value);
+
+  const isError = input === '';
+
+  return (
+    <FormControl >
+      <Input
+        type='email'
+        value={input}
+        onChange={handleInputChange}
+      />
+
+      <FormErrorMessage>Email is required.</FormErrorMessage>
+
+    </FormControl>
+  );
+}

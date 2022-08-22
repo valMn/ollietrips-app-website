@@ -43,7 +43,12 @@ const Home: NextPage = () => {
       </Head>
 
     <main className={styles.container}>
-      <Section hero style={{ padding: '10px 0' }}>
+      <Section hero
+        style={{
+          paddingTop: [5, 5, 10],
+          paddingBottom: [5, 5, 10]
+        }}
+      >
         <nav>
           <Flex align='center' gap={8}>
             <Image src='/ollie-logo.svg' alt='Ollie logo'
@@ -66,7 +71,7 @@ const Home: NextPage = () => {
           </Sal>
         </Section>
 
-        <Section hero fullWidth>
+      <Section hero fullWidth>
           <Box
             sx={{
               width: '100%',
@@ -82,7 +87,8 @@ const Home: NextPage = () => {
           </Box>
         </Section>
 
-        <Section primaryBg hero>
+      <Section primaryBg hero mt={[6, 8, 10]}
+      >
           <Flex direction={['column', 'column', 'row']}
             justifyContent='space-between'
             alignItems='center' gap={10}
@@ -92,7 +98,7 @@ const Home: NextPage = () => {
               maxW={['100%', 400]} color='white' h='auto'
             >
               <Heading size='lg' pb={10}>Get up to 20% discount on your first reservation!</Heading >
-              <Text >Be one of our first users. The first 2000 travelers who subscribes to our waiting list will receive <span style={{ fontWeight: 'bold' }}>PREMIUM</span> benefits</Text>
+            <Text >Be one of our first users. The first 2000 travelers who subscribe to our waiting list will receive <span style={{ fontWeight: 'bold' }}>PREMIUM</span> benefits.</Text>
             </Flex>
             <Sal animation='slide-up'>
               <form>
@@ -137,7 +143,7 @@ const Home: NextPage = () => {
 
 
       <Section id='about'>
-          <Heading color='brand.darkGray' fontSize={['4xl', '4xl', '5xl', '6xl']} textAlign='center' fontWeight='bold' pb={14}>
+        <Heading color='brand.darkGray' fontSize={['4xl', '4xl', '5xl', '6xl']} textAlign={['center', 'center', 'start', 'start']} py={[5, 10, 20]} fontWeight='bold' pb={14}>
             Your perfect holiday is just a few clicks away.
           </Heading>
           <Flex direction={['column', 'column', 'row']}
@@ -179,21 +185,37 @@ const Home: NextPage = () => {
               }}>0%</Sal></Heading>
             <Heading size={['2xl', '2xl', '4xl']} fontWeight='medium'>platform fees?</Heading>
           </Stack>
-          <Heading textAlign='center' size='2xl' display={[null, null, 'none']}>So what about 0% platform fees?</Heading>
+        <Heading textAlign='center' size='2xl'
+          display={[null, null, 'none']}>So what about 0% platform fees?</Heading>
         </Section>
 
         <Section>
-          <Stack direction={['column', 'column', 'column', 'row']} w='100%' align='center' justify='center' spacing={[8, 8, 8, 8, 12]}>
-          <CardPass title="Gold Pass" percentage={5} totalQuantity={500} restQuantity={115} paymentLink="https://buy.stripe.com/test_8wM6sk23N3em2wUeUU" passPrice={499} passDescription={`If you are subscribed to the Gold Subs. Plan you only pay 5% booking fees and you are saving Almost 55% saved on booking fees compared to a free version of Ollie.`} />
+        <Stack direction={['column', 'column', 'column', 'row']} w='100%' align='center' justify='center' spacing={[8, 8, 8, 8, 12]}>
 
-          <CardPass title="Deluxe Pass" percentage={0} totalQuantity={100} restQuantity={37} paymentLink="#" highlighted passPrice={997} passDescription={`If you are subscribed to the Deluxe Subs. Plan you pay 0% booking fees and you are saving €400. What if you are spending €10.000 on travel annually? You are saving €2000 already in the first year! It’s a no-brainer, right?`} />
+          <CardPass title="Pro Pass" percentage={7}
+            totalQuantity={1000} restQuantity={340}
+            paymentLink="https://buy.stripe.com/3cs3cyfTv3joaTSbII"
+            passPrice={199}
+            passDescription={`Up to 20% discount on every booking. Pay once and enjoy discounts for a lifetime. Book your trips on Ollie for 1000€ and you already got back the value of your pass. You save at least 200€ every time when you spend more than 1000€ on travel with Ollie.`} />
 
-          <CardPass title="Pro Pass" percentage={7} totalQuantity={1000} restQuantity={340} paymentLink="https://buy.stripe.com/test_fZe6sk6k3aGO7ReaEG" passPrice={199} passDescription={`However, if you are subscribed to the Pro Subs. Plan you only pay 7% booking fees and you are saving. Almost 37% saved on booking fees compared to a free version of Ollie. With just €3000 of travel, you get your invested money back.`} />
+          <CardPass title="Deluxe Pass" percentage={0}
+            totalQuantity={100} restQuantity={37} highlighted
+            paymentLink="https://buy.stripe.com/7sI6oK8r31bgd2028a"
+            passPrice={997}
+            passDescription={`Up to 28% discount on every booking. Pay once and enjoy discounts for a lifetime. Book travel on Ollie for 3560€ and you already got back the value of your pass. This means that you save at least 997€ every time when you spend more than 3560€ on travel with Ollie.`} />
+
+          <CardPass
+            title="Gold Pass" percentage={5}
+            totalQuantity={500} restQuantity={115}
+            paymentLink="https://buy.stripe.com/28o00m8r3g6a8LK8wx"
+            passPrice={499}
+            passDescription={`Up to 23% discount on every booking. Pay once and enjoy discounts for a lifetime. Book travel on Ollie for 2173€ and you already got back the value of your pass. This means that you save at least 499€ every time when you spend more than 2173€ on travel with Ollie.`} />
+
           </Stack>
         </Section>
 
         <Section>
-          <Flex direction={['column', 'column', 'row']} gap={[6, 6, 0]}>
+        <Flex direction={['column', 'column', 'row']} gap={16}>
             <Box flex='3'>
               <Sal animation='slide-left' inline>
               <Heading size="3xl">
@@ -201,8 +223,8 @@ const Home: NextPage = () => {
                 </Heading>
               </Sal>
             </Box>
-            <Stack flex='2'>
-              <Heading size='md' pb='4'>How much can you save with our Lifetime Passes? </Heading >
+          <Stack flex='2' spacing={10}>
+            <Heading size='md'>How much can you save with our Lifetime Passes? </Heading >
               <Sal animation='slide-right' inline>
                 <Text>{`Let’s imagine that you are spending around €2000 on travel per year. While other booking platforms are charging between 14% and 30% booking fees, Ollie only charges 11-12%.
                 If you use the Ollie free account you are saving on average €100 on your annual plan.`}
@@ -212,28 +234,52 @@ const Home: NextPage = () => {
           </Flex>
         </Section>
 
-        <Section>
+      {/* <Section>
           <Flex>
             <Heading size='2xl' color='brand.darkGray' flex='5'>It’s not an idea anymore.<br />
               Starts to look like the future.
             </Heading>
             <Box flex='2'></Box>
           </Flex>
-        </Section>
+        </Section> */}
 
-        <Section>
-          <Flex justifyContent='center'>
-            <CardQuote padding={[10, 10, 20]}>
-              <Text>{`You don't need 100 apps to check the best travel deals, you only need one. `}</Text>
-              <Heading size='md' pt='2'>Ollie</Heading >
-            </CardQuote>
-          </Flex>
-        </Section>
+      {/* <Section>
+                  <Flex justifyContent='center'>
+                    <CardQuote padding={[10, 10, 20]}>
+                      <Text>{`You don't need 100 apps to check the best travel deals, you only need one. `}</Text>
+                      <Heading size='md' pt='2'>Ollie</Heading >
+                    </CardQuote>
+                  </Flex>
+                </Section> */}
+
+      <Section>
+        <Stack spacing={[10]}>
+          <Sal animation='slide-left'>
+            <Heading textAlign='center' size={['2xl', '2xl', '3xl']}>Travel <span style={{ color: theme.colors.brand.primary }}>more, for less</span> money</Heading>
+          </Sal>
+
+          <Sal animation='slide-up'>
+            <Stack spacing={[10]} textAlign='center' alignItems='center'>
+              <Heading size='md'>Other platforms are charging between 14% - 30% in booking fees.</Heading>
+              <Box w={600}>
+                <Image src='/images/discount-comparison-mock.png' alt='Phone price comparison'
+                  width={500}
+                  height={300}
+                  layout='responsive'
+                  priority
+                />
+              </Box>
+              <Heading size='md'>How about <span style={{ fontWeight: 'bold', color: theme.colors.brand.primary }}>0% platform fee?</span></Heading>
+              <Text maxW={600}>Be our VIP member to reduce your booking fees as low as 0% for a lifetime with our precious lifetime passes.</Text>
+            </Stack>
+          </Sal>
+        </Stack>
+      </Section>
 
         <Section>
           <Flex direction='column' align='center' justify='center' width='100%' gap='80px'>
             <Heading textAlign='center' size={['3xl', '3xl', '4xl']}>One <span style={{ color: theme.colors.brand.primary }}>App</span> to rule them all!</Heading>
-            <Image src='/mocks/mock-desktop.png' alt='desktop view of the app' width={1200} height={700} />
+          <Image src='/mocks/mock-desktop.png' alt='desktop view of the app' width={1200} height={700} priority />
           </Flex>
         </Section>
 
@@ -243,7 +289,7 @@ const Home: NextPage = () => {
               <Heading size={['3xl', '3xl', '4xl']}>Your favorite Hotels on <span style={{ color: theme.colors.brand.primary }}>Ollie</span></Heading>
             </Sal>
 
-            <Grid gap={7} templateColumns={['repeat(2,1fr)', 'repeat(2,1fr)', 'repeat(3,1fr)']}>
+          <Grid gap={[6, 8, 10]} templateColumns={['repeat(2,1fr)', 'repeat(2,1fr)', 'repeat(3,1fr)']}>
               {hotels.map((hotel, i) => (
                 <CardPartner key={i} src={hotel} />
               ))}
@@ -253,13 +299,14 @@ const Home: NextPage = () => {
 
       <Section id='team'>
           <Flex direction={['column', 'column', 'row']} width='100%' align='flex-start' justify='space-between' gap={6}
-            position='relative'>
+          position='relative' pr={[10, 10, 15, 0]}>
             <Box maxW={300}>
               <Sal animation='slide-left'>
                 <Heading fontWeight='semibold' size='2xl'>Ollie Creators</Heading>
               </Sal>
             </Box>
-            <Stack spacing={8} className='scrollable-content' pr={2}>
+          <Stack spacing={8} className='scrollable-content'
+            pr={2} >
               {creators.map((creator, i) => {
                 const { name, position, description, imageSrc, linkedInUrl } = creator;
                 return <CardCreator key={i} imageSrc={imageSrc} name={name} role={position} linkedInUrl={linkedInUrl} description={description} />;
@@ -275,36 +322,38 @@ const Home: NextPage = () => {
           style={{ borderRadius: '40px 40px 0 0' }}>
           <footer>
             <Flex color='white' width='100%s' gap={16}
-            align='flex-start' justify='center'
-              direction={['column', 'column', 'row']}>
-            <Stack flex={[0, 0, 1]} display={['none', 'none', 'flex']} spacing={6} alignItems='end'>
-              <Heading size='md'>Site map</Heading>
+            align='center' justify='center' w='100%'
+            direction={['column', 'column', 'row']}>
 
+            <Stack flex={[0, 0, 1]} display={['none', 'none', 'flex']}
+              spacing={6} alignItems='end'>
+              <Heading size='md'>Site map</Heading>
               {navLinks.map(link => <Link key={link.label}
                 href={link.link}>{link.label}</Link>)}
-
             </Stack>
-            <Stack flex='2' align='center'
-              width='100%' maxW={500} spacing={7}>
 
+            <Stack flex='2' align='center' w='100%' maxW={500} spacing={7}>
                 <Heading size='md'>Be the first!</Heading>
                 <Text>Enter Your Details To Get Premium Bonuses</Text>
 
                 <NewsletterSubscribe
                   inputProps={{
                     variant: 'filled', rounded: 'full',
-                    size: 'lg',
-                    mb: [5, 5, 8]
+                  size: 'lg', color: 'brand.mediumGray',
+                  mb: [5, 5, 8],
+                  _focus: { backgroundColor: 'white', color: 'brand.darkgray' }
                   }}
                   buttonProps={{
-                    bgColor: 'brand.primary', color: 'white', variant: 'outline',
+                    bgColor: 'brand.primary',
+                    color: 'white', variant: 'outline',
                     rounded: 'full', size: 'lg', maxW: 40, my: 'auto', colorScheme: "whiteAlpha",
                     label: 'Get Bonuses'
                   }} />
 
-              </Stack>
-            <Stack flex={[0, 0, 1]} 
-                alignItems={['center', 'cener', 'flex-start']}
+            </Stack>
+
+            <Stack flex={[0, 0, 1]} w='100%'
+              alignItems={['center', 'center', 'flex-start']}
                 spacing={6}>
                 <Heading size='md'>Contact</Heading>
                 <Text>Bucharest, RO</Text>
@@ -341,7 +390,8 @@ const Home: NextPage = () => {
                     ><FiTwitter /></Circle>
                   </a> */}
                 </HStack>
-              </Stack>
+            </Stack>
+
             </Flex>
           </footer >
         </Section >

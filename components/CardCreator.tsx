@@ -21,7 +21,7 @@ export const CardCreator: React.FC<Props> = ({ imageSrc, name, linkedInUrl, role
       <Flex gap={6} direction={['column', 'column', 'row']}>
         <Avatar size='xl' src={imageSrc} name={name} sx={{ 'background': 'none' }} />
         <Stack>
-          <Flex align='center' justify='space-between' gap={4}>
+          <Flex align='flex-start' justify='space-between' gap={4}>
             <Stack pb={2}>
               <Heading color='brand.darkGray' size='lg'>{name}</Heading>
               <Heading fontWeight='medium' color='brand.mediumGray' size='md'>{role}</Heading>
