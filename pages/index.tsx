@@ -45,8 +45,8 @@ const Home: NextPage = () => {
     <main className={styles.container}>
       <Section hero
         style={{
-          paddingTop: [5, 5, 10],
-          paddingBottom: [5, 5, 10]
+          paddingTop: 6,
+          paddingBottom: 6
         }}
       >
         <nav>
@@ -87,7 +87,7 @@ const Home: NextPage = () => {
           </Box>
         </Section>
 
-      <Section primaryBg hero mt={[6, 8, 10]}
+      <Section primaryBg hero style={{ marginTop: 8 }}
       >
           <Flex direction={['column', 'column', 'row']}
             justifyContent='space-between'

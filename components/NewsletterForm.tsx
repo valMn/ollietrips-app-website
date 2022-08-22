@@ -97,7 +97,7 @@ export const NewsletterForm = ({ status, message, onValidated, buttonProps, inpu
   return (
     <>
       {inputProps && <>
-        <FormControl isInvalid={error.firstName}>
+        <FormControl isInvalid={error.firstName ? true : false}>
         <Input {...inputProps}
           value={firstName}
           onChange={(event) => setFirstName(event?.target?.value ?? '')}
@@ -106,7 +106,7 @@ export const NewsletterForm = ({ status, message, onValidated, buttonProps, inpu
           <FormErrorMessage>{error.firstName}</FormErrorMessage>
         </FormControl>
 
-        <FormControl isInvalid={error.email}>
+        <FormControl isInvalid={error.email ? true : false}>
         <Input {...inputProps}
           value={email}
           onChange={(event) => setEmail(event?.target?.value ?? '')}
@@ -130,24 +130,3 @@ export const NewsletterForm = ({ status, message, onValidated, buttonProps, inpu
     </>
   );
 };
-
-function ErrorMessageExample() {
-  const [input, setInput] = useState('');
-
-  const handleInputChange = (e) => setInput(e.target.value);
-
-  const isError = input === '';
-
-  return (
-    <FormControl >
-      <Input
-        type='email'
-        value={input}
-        onChange={handleInputChange}
-      />
-
-      <FormErrorMessage>Email is required.</FormErrorMessage>
-
-    </FormControl>
-  );
-}
