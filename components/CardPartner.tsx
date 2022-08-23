@@ -23,7 +23,7 @@ export const CardPartner: React.FC<Props> = ({ src, ...rest }) => {
           layout='fixed'
           priority /> */}
         <img src={`/logos/hotels/${src}.svg`} alt={src}
-          style={{ aspectRatio: 1 }}
+          style={{ aspectRatio: '1/1' }}
         />
       </Flex >
     </GridItem >);
