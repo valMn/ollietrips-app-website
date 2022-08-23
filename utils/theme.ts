@@ -7,7 +7,7 @@ export const theme = {
       darkGray: '#1F1E1E',
       mediumGray: '#6F6F6F',
       lightGray: '#D6D6DB',
-      ultraLightGray: '#F9F9F9'
+      ultraLightGray: '#F5F5F5'
     },
   },
   fonts: {

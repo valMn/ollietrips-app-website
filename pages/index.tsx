@@ -64,14 +64,25 @@ const Home: NextPage = () => {
 
         <Section>
           <Sal animation='slide-up' duration='1200' delay='300'>
-            <Stack textAlign='center'>
-            <Heading size='lg' pb={6}>Plan your dream vacation at the speed of light</Heading >
-              <Text >Everything you need for a perfect holiday in one <span style={{ fontWeight: 'bold' }}>app</span></Text>
+          <Stack textAlign='center' spacing={6}>
+            <Heading size='lg'>Plan your dream vacation at the speed of light</Heading >
+            <Text >Everything you need for a perfect holiday in one <span style={{ fontWeight: 'bold' }}>app</span></Text>
             </Stack>
           </Sal>
+        <Sal animation='slide-down' delay='500'>
+          <Heading
+            textAlign='center'
+            color='brand.primary'
+            size={['3xl', '3xl', '4xl']}
+            position='relative'
+            top={12}
+          >Ollie App</Heading>
+        </Sal>
         </Section>
 
-      <Section hero fullWidth>
+      <Section hero fullWidth
+        style={{ paddingBottom: 100 }}
+      >
           <Box
             sx={{
               width: '100%',
@@ -87,8 +98,7 @@ const Home: NextPage = () => {
           </Box>
         </Section>
 
-      <Section primaryBg hero style={{ marginTop: 8 }}
-      >
+      <Section primaryBg hero>
           <Flex direction={['column', 'column', 'row']}
             justifyContent='space-between'
             alignItems='center' gap={10}
@@ -103,13 +113,16 @@ const Home: NextPage = () => {
             <Sal animation='slide-up'>
               <form>
               <Box
+                shadow='lg'
                 sx={{
                   position: 'relative',
                   display: 'flex',
                   justifyContent: 'center',
                   bottom: -20,
                   height: '100%',
-                  width: '100%'
+                  width: '100%',
+                  // ['-webkit-box-shadow']:'0px 21px 18px -6px #9A9A9A',
+                  boxShadow: '0px 31px 38px -46px rgba(0,0,0,0.2)',
                 }}
               >
                 <Image src='/images/iphone-outline.svg' alt='Iphone 13 outline'
@@ -155,6 +168,23 @@ const Home: NextPage = () => {
           </Flex>
         </Section>
 
+      <Section>
+        <Stack align='center' display={['none', 'none', 'flex']}>
+          <Heading size={['2xl', '2xl', '4xl']} fontWeight='medium'>So what about <Sal inline animation='zoom-out' duration='2000'
+            style={{
+              ['@media screen and (min-width: 30em']: {
+                fontSize: 60
+              },
+              fontSize: 110,
+              color: theme.colors.brand.darkGray,
+              fontWeight: 'bold'
+            }}>0%</Sal></Heading>
+          <Heading size={['2xl', '2xl', '4xl']} fontWeight='medium'>platform fees?</Heading>
+        </Stack>
+        <Heading textAlign='center' size='2xl'
+          display={[null, null, 'none']}>So what about 0% platform fees?</Heading>
+      </Section>
+
         <Section>
           <Sal animation='slide-left'>
             <Heading size={['xl', '4xl']} color='brand.darkGray'
@@ -170,23 +200,6 @@ const Home: NextPage = () => {
               <Text>Be our VIP user and reduce your booking fees to as low as 0%. For a lifetime. With our precious Lifetime Passes.</Text>
             </CardQuote>
           </Flex>
-        </Section>
-
-        <Section>
-          <Stack align='center' display={['none', 'none', 'flex']}>
-            <Heading size={['2xl', '2xl', '4xl']} fontWeight='medium'>So what about <Sal inline animation='zoom-out' duration='2000'
-              style={{
-                ['@media screen and (min-width: 30em']: {
-                  fontSize: 60
-                },
-                fontSize: 110,
-                color: theme.colors.brand.darkGray,
-                fontWeight: 'bold'
-              }}>0%</Sal></Heading>
-            <Heading size={['2xl', '2xl', '4xl']} fontWeight='medium'>platform fees?</Heading>
-          </Stack>
-        <Heading textAlign='center' size='2xl'
-          display={[null, null, 'none']}>So what about 0% platform fees?</Heading>
         </Section>
 
         <Section>
@@ -214,7 +227,7 @@ const Home: NextPage = () => {
           </Stack>
         </Section>
 
-        <Section>
+      {/* <Section>
         <Flex direction={['column', 'column', 'row']} gap={16}>
             <Box flex='3'>
               <Sal animation='slide-left' inline>
@@ -232,7 +245,7 @@ const Home: NextPage = () => {
               </Sal>
             </Stack>
           </Flex>
-        </Section>
+        </Section> */}
 
       {/* <Section>
           <Flex>
@@ -252,7 +265,7 @@ const Home: NextPage = () => {
                   </Flex>
                 </Section> */}
 
-      <Section>
+      {/* <Section>
         <Stack spacing={[10]}>
           <Sal animation='slide-left'>
             <Heading textAlign='center' size={['2xl', '2xl', '3xl']}>Travel <span style={{ color: theme.colors.brand.primary }}>more, for less</span> money</Heading>
@@ -274,7 +287,7 @@ const Home: NextPage = () => {
             </Stack>
           </Sal>
         </Stack>
-      </Section>
+      </Section> */}
 
         <Section>
           <Flex direction='column' align='center' justify='center' width='100%' gap='80px'>
