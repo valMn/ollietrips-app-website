@@ -192,14 +192,28 @@ const Home: NextPage = () => {
           <Sal animation='slide-up'>
             <Stack spacing={[10]} textAlign='center' alignItems='center'>
               <Heading size='md'>Other platforms are charging between 14% - 30% in booking fees.</Heading>
-              <Box w={600}>
-                <Image src='/images/discount-comparison-mock.png' alt='Phone price comparison'
+              <Center w='100%'>
+                {/* <Image src='/images/discount-comparison-mock.png' alt='Phone price comparison' width={1200} height={700} priority /> */}
+                <FutureImage
+                  priority
                   width={500}
+                  height={500}
+                  style={{
+                    backgroundSize: '150% 150%',
+                    maxWidth: '600px',
+                    width: '100%',
+                    height: '100%'
+                  }}
+                  src='/images/discount-comparison-mock.png'
+                  alt='Phone price comparison'
+                />
+                {/* <Image src='/images/discount-comparison-mock.png' alt='Phone price comparison'
+                  width={300}
                   height={300}
                   layout='responsive'
                   priority
-                />
-              </Box>
+                /> */}
+              </Center>
               <Heading size='lg'>How about <span style={{ fontWeight: 'bold', color: theme.colors.brand.primary }}>0% platform fee?</span></Heading>
               <Text maxW={600}>Be our VIP member to reduce your booking fees as low as 0% for a lifetime with our precious lifetime passes.</Text>
             </Stack>
