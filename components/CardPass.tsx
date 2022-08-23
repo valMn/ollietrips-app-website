@@ -38,7 +38,7 @@ export const CardPass: React.FC<Props> = ({
     <Box w="100%" h="100%"
           shadow='xl' borderWidth={highlighted ? 0 : 2}
       borderRadius='2rem' display='flex' alignItems='center'
-      bg={highlighted ? 'brand.primary' : ''}
+          bg={highlighted ? 'brand.primary' : 'white'}
           p={cardPadding} py={cardPaddingY}
         >
           <Stack align='center' justify='center' spacing={[4, 4, 6, 10]} height='100%' width={[null, null, '100%']}>

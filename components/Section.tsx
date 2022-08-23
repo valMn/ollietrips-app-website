@@ -14,7 +14,7 @@ type Props = {
 export const Section: React.FC<Props> = ({ height,
   primaryBg = false, hero = false, fullWidth = false, id, children, style, ...rest }) => {
   return (
-    <Box bg={primaryBg ? 'brand.primary' : 'brand.ultraLightGray'}
+    <Box bg={primaryBg ? 'brand.primary' : ''}
       w='100vw' py={hero ? 20 : [10, 12, 14]}
       px={fullWidth ? 0 : [4, 6, 8, 10]} id={id}
       scrollSnapAlign='start'
