@@ -121,7 +121,6 @@ const Home: NextPage = () => {
                   bottom: -20,
                   height: '100%',
                   width: '100%',
-                  // ['-webkit-box-shadow']:'0px 21px 18px -6px #9A9A9A',
                   boxShadow: '0px 31px 38px -46px rgba(0,0,0,0.2)',
                 }}
               >
@@ -154,7 +153,6 @@ const Home: NextPage = () => {
           </Flex>
         </Section>
 
-
       <Section id='about'>
         <Heading color='brand.darkGray' fontSize={['4xl', '4xl', '5xl', '6xl']} textAlign={['center', 'center', 'start', 'start']} py={[5, 10, 20]} fontWeight='bold' pb={14}>
             Your perfect holiday is just a few clicks away.
@@ -168,24 +166,7 @@ const Home: NextPage = () => {
           </Flex>
         </Section>
 
-      <Section>
-        <Stack align='center' display={['none', 'none', 'flex']}>
-          <Heading size={['2xl', '2xl', '4xl']} fontWeight='medium'>So what about <Sal inline animation='zoom-out' duration='2000'
-            style={{
-              ['@media screen and (min-width: 30em']: {
-                fontSize: 60
-              },
-              fontSize: 110,
-              color: theme.colors.brand.darkGray,
-              fontWeight: 'bold'
-            }}>0%</Sal></Heading>
-          <Heading size={['2xl', '2xl', '4xl']} fontWeight='medium'>platform fees?</Heading>
-        </Stack>
-        <Heading textAlign='center' size='2xl'
-          display={[null, null, 'none']}>So what about 0% platform fees?</Heading>
-      </Section>
-
-        <Section>
+      {/* <Section>
           <Sal animation='slide-left'>
             <Heading size={['xl', '4xl']} color='brand.darkGray'
               flex={[0, 2]}>Travel more, for less money</Heading>
@@ -200,7 +181,31 @@ const Home: NextPage = () => {
               <Text>Be our VIP user and reduce your booking fees to as low as 0%. For a lifetime. With our precious Lifetime Passes.</Text>
             </CardQuote>
           </Flex>
-        </Section>
+        </Section> */}
+
+      <Section>
+        <Stack spacing={[16]}>
+          <Sal animation='slide-left'>
+            <Heading textAlign='center' size={['2xl', '2xl', '3xl']}>Travel <span style={{ color: theme.colors.brand.primary }}>more, for less</span> money</Heading>
+          </Sal>
+
+          <Sal animation='slide-up'>
+            <Stack spacing={[10]} textAlign='center' alignItems='center'>
+              <Heading size='md'>Other platforms are charging between 14% - 30% in booking fees.</Heading>
+              <Box w={600}>
+                <Image src='/images/discount-comparison-mock.png' alt='Phone price comparison'
+                  width={500}
+                  height={300}
+                  layout='responsive'
+                  priority
+                />
+              </Box>
+              <Heading size='lg'>How about <span style={{ fontWeight: 'bold', color: theme.colors.brand.primary }}>0% platform fee?</span></Heading>
+              <Text maxW={600}>Be our VIP member to reduce your booking fees as low as 0% for a lifetime with our precious lifetime passes.</Text>
+            </Stack>
+          </Sal>
+        </Stack>
+      </Section>
 
         <Section>
         <Stack direction={['column', 'column', 'column', 'row']} w='100%' align='center' justify='center' spacing={[8, 8, 8, 8, 12]}>
@@ -265,29 +270,6 @@ const Home: NextPage = () => {
                   </Flex>
                 </Section> */}
 
-      {/* <Section>
-        <Stack spacing={[10]}>
-          <Sal animation='slide-left'>
-            <Heading textAlign='center' size={['2xl', '2xl', '3xl']}>Travel <span style={{ color: theme.colors.brand.primary }}>more, for less</span> money</Heading>
-          </Sal>
-
-          <Sal animation='slide-up'>
-            <Stack spacing={[10]} textAlign='center' alignItems='center'>
-              <Heading size='md'>Other platforms are charging between 14% - 30% in booking fees.</Heading>
-              <Box w={600}>
-                <Image src='/images/discount-comparison-mock.png' alt='Phone price comparison'
-                  width={500}
-                  height={300}
-                  layout='responsive'
-                  priority
-                />
-              </Box>
-              <Heading size='md'>How about <span style={{ fontWeight: 'bold', color: theme.colors.brand.primary }}>0% platform fee?</span></Heading>
-              <Text maxW={600}>Be our VIP member to reduce your booking fees as low as 0% for a lifetime with our precious lifetime passes.</Text>
-            </Stack>
-          </Sal>
-        </Stack>
-      </Section> */}
 
         <Section>
           <Flex direction='column' align='center' justify='center' width='100%' gap='80px'>
