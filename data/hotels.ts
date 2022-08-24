@@ -1,0 +1,1 @@
+export const hotels = ['protea', 'radisson', 'ac', 'marriott', 'hilton', 'sheraton'];
