@@ -158,7 +158,7 @@ const Home: NextPage = () => {
                   position: 'relative',
                   display: 'flex',
                   justifyContent: 'center',
-                  bottom: -20,
+                  bottom: -15,
                   height: '100%',
                   width: '100%',
                   boxShadow: '0px 31px 38px -46px rgba(0,0,0,0.2)',
