@@ -20,8 +20,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import "swiper/css/bundle";
 
-
-
 import { FiLinkedin } from 'react-icons/fi';
 import { FiFacebook } from 'react-icons/fi';
 import { FiInstagram } from 'react-icons/fi';
@@ -89,9 +87,7 @@ const Home: NextPage = () => {
 
       <Section>
 
-
       </Section>
-
       <Section hero fullWidth
         style={{
           paddingBottom: 100,
@@ -137,12 +133,12 @@ const Home: NextPage = () => {
             </Flex>
 
           </Box>
-
         </Sal>
         </Section>
 
       <Section primaryBg hero rounded
       >
+
           <Flex direction={['column', 'column', 'row']}
             justifyContent='space-between'
             alignItems='center' gap={10}

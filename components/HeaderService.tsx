@@ -10,7 +10,7 @@ type Props = {
 
 export const HeaderService: React.FC<Props> = ({ imageSrc, label }) => {
   return (
-    <Box w='100%' h='auto' position='relative' >
+    <Box w='100%' h='auto' position='relative'>
       <FutureImage
         priority
         width={250}
