@@ -17,12 +17,13 @@ export const HeaderService: React.FC<Props> = ({ imageSrc, label }) => {
         height={250}
         style={{
           backgroundSize: '150% 150%',
-          maxWidth: '400px',
+          maxWidth: '800px',
           width: '100%',
           height: '100%'
         }}
         src={`/images/${imageSrc}.jpg`} alt={label} />
-      <Heading size={['xs', 'sm', 'md',]} fontWeight='medium' color='white'
+      <Heading size={['lg', 'lg', 'md']} fontWeight='medium' color='white'
+        data-swiper-parallax="-300"
         sx={{
           position: 'absolute',
           top: '50%',
