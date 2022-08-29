@@ -9,12 +9,19 @@ import { hotels } from '../data/hotels';
 import { headerServices } from "../data/headerServices";
 import {
   Text, Box, Stack, Flex, Heading, Divider, Link,
-  Center, Spacer, Input, Button, HStack, Circle, Grid
+  Center, Spacer, Input, Button, HStack, Circle, Grid,
+  Image as ChakraImage
 } from '@chakra-ui/react';
 import { Section, CardPass, CardStep, CardCreator, CardQuote, CardPartner, HeaderService, Sal, NewsletterSubscribe } from "../components";
 import sal, { Options } from 'sal.js';
 import 'sal.js/dist/sal.css';
 // import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
+import "swiper/css/bundle";
+
+
+
 import { FiLinkedin } from 'react-icons/fi';
 import { FiFacebook } from 'react-icons/fi';
 import { FiInstagram } from 'react-icons/fi';
@@ -78,11 +85,43 @@ const Home: NextPage = () => {
             top={12}
           >Ollie App</Heading>
         </Sal>
-        </Section>
+      </Section>
+
+      <Section>
+
+
+      </Section>
 
       <Section hero fullWidth
-        style={{ paddingBottom: 100 }}
+        style={{
+          paddingBottom: 100,
+        }}
       >
+        <Sal animation='slide-up'>
+          <Box
+            sx={{
+              width: '100%',
+              height: '100%',
+              aspectRatio: 1,
+              maskImage: 'url(/images/curve-mask-mobile.png)',
+              maskSize: '100% 100%'
+            }}>
+            <Flex width='100%' height='100%'
+              justifyContent='center' gap={4}
+              display={['flex', 'flex', 'none']}
+            >
+              <Swiper loop={true}
+                pagination={{
+                  clickable: true,
+                }} modules={[Pagination]}
+                className="mySwiper">
+                {headerServices.map((service, i) => <SwiperSlide key={i}  >
+                  <HeaderService imageSrc={service.imageSrc} label={service.label} />
+                </SwiperSlide>)}
+              </Swiper>
+            </Flex>
+          </Box>
+
           <Box
             sx={{
               width: '100%',
@@ -92,13 +131,18 @@ const Home: NextPage = () => {
             }}>
             <Flex width='100%' height='100%'
               justifyContent='center' gap={4}
+              display={['none', 'none', 'flex']}
             >
               {headerServices.map((service, i) => <HeaderService key={i} imageSrc={service.imageSrc} label={service.label} />)}
             </Flex>
+
           </Box>
+
+        </Sal>
         </Section>
 
-      <Section primaryBg hero>
+      <Section primaryBg hero rounded
+      >
           <Flex direction={['column', 'column', 'row']}
             justifyContent='space-between'
             alignItems='center' gap={10}
