@@ -14,7 +14,7 @@ type Props = {
   title: string;
   percentage: number;
   totalQuantity: number;
-  restQuantity: number;
+  // restQuantity: number;
   passPrice: number;
   passDescription: string;
   paymentLink: string;
@@ -22,8 +22,9 @@ type Props = {
 };
 
 export const CardPass: React.FC<Props> = ({
-  title, percentage = 0, totalQuantity, restQuantity,
-  paymentLink, passPrice, passDescription, highlighted = false, }) => {
+  title, percentage = 0, totalQuantity,
+  paymentLink, passPrice, passDescription,
+  highlighted = false, }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const textColor = highlighted ? 'white' : 'brand.darkGray';
@@ -31,15 +32,21 @@ export const CardPass: React.FC<Props> = ({
   const bgColor = highlighted ? 'white' : 'brand.primary';
   const cardPadding = highlighted ? [10, 12, 12, 16] : [6, 8, 10];
   const cardPaddingY = highlighted ? [10, 16, 20] : '';
+  const cardMarginY = !highlighted ? [16] : '';
 
   return (
     <>
-    <Sal animation='slide-up'>
-    <Box w="100%" h="100%"
-          shadow='xl' borderWidth={highlighted ? 0 : 2}
-      borderRadius='2rem' display='flex' alignItems='center'
+      <Box
+        w="100%" h="100%"
+        shadow='xl'
+        borderWidth={highlighted ? 0 : 2}
+        borderRadius='2rem'
+        display='flex'
+        alignItems='center'
+        justifyContent='center'
           bg={highlighted ? 'brand.primary' : 'white'}
           p={cardPadding} py={cardPaddingY}
+        my={cardMarginY}
         >
           <Stack align='center' justify='center' spacing={[4, 4, 6, 10]} height='100%' width={[null, null, '100%']}>
             < Heading color={textColor} fontWeight={100} textAlign="center">{title}</Heading >
@@ -70,8 +77,7 @@ export const CardPass: React.FC<Props> = ({
               variant={highlighted ? 'solid' : 'outline'}
               onClick={onOpen}>Learn More</Button>
           </Stack>
-        </Box >
-      </Sal>
+      </Box >
 
       {/* -------------- Modal ------------- */}
 

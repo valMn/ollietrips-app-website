@@ -6,6 +6,7 @@ import { theme } from '../utils/theme';
 import styles from '../styles/Home.module.css';
 import { creators } from '../data/creators';
 import { hotels } from '../data/hotels';
+import { passes } from '../data/passes';
 import { headerServices } from "../data/headerServices";
 import {
   Text, Box, Stack, Flex, Heading, Divider, Link,
@@ -40,7 +41,6 @@ const navLinks = [{
 
 const Home: NextPage = () => {
   return (<>
-
       <Head>
         <title>Ollie App - An all in one travel app for your dream holiday</title>
         <meta name="description" content="Homepage for Ollie App" />
@@ -145,9 +145,10 @@ const Home: NextPage = () => {
           >
 
             <Flex direction='column' align='center' justify='center'
-              maxW={['100%', 400]} color='white' h='auto'
+            maxW={['100%', 400]} color='white' h='auto'
+            py={[15, 15, 15, 0]}
             >
-              <Heading size='lg' pb={10}>Get up to 20% discount on your first reservation!</Heading >
+            <Heading size='lg' pb={10} >Get up to 20% discount on your first reservation!</Heading >
             <Text >Be one of our first users. The first 2000 travelers who subscribe to our waiting list will receive <span style={{ fontWeight: 'bold' }}>PREMIUM</span> benefits.</Text>
             </Flex>
             <Sal animation='slide-up'>
@@ -197,13 +198,48 @@ const Home: NextPage = () => {
         <Heading color='brand.darkGray' fontSize={['4xl', '4xl', '5xl', '6xl']} textAlign={['center', 'center', 'start', 'start']} py={[5, 10, 20]} fontWeight='bold' pb={14}>
             Your perfect holiday is just a few clicks away.
           </Heading>
-          <Flex direction={['column', 'column', 'row']}
+        {/* <Flex direction={['column', 'column', 'row']}
             align='center' justify='center'
-            gap={[5, 8, 10]}>
-            <CardStep stepNumber={1} imageSrc='/mocks/mock-1.png' title='Find the best deals end-to-end' subtitle="Less fees and frictions between you and your destination. Skip the middleman and avoid unnecessary booking steps." />
-            <CardStep stepNumber={2} imageSrc='/mocks/mock-2.png' title='Plan your entire trip with Ollie' subtitle="Plan all your journey (transportation, accommodation and activities) in only one app. Enjoy more switch less." />
-            <CardStep stepNumber={3} imageSrc='/mocks/mock-3.png' title='Save pretious time while searching' subtitle="Get personalized itineraries based on your profile and previous trips in an ever-improving AI-based platform." />
-          </Flex>
+            gap={[5, 8, 10]}> */}
+        <Sal animation='slide-up'>
+          <Swiper
+            slidesPerView={1.5}
+            spaceBetween={30}
+            initialSlide={0}
+            breakpoints={{
+              500: {
+                slidesPerView: 1.7,
+                spaceBetween: 30,
+              },
+              768: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                initialSlide: 1,
+                enabled: false
+              },
+            }}
+            centeredSlides={true}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Pagination]}
+            className="mySwiper"
+            style={{
+              overflow: 'hidden',
+              verticalAlign: 'middle',
+            }}>
+            <SwiperSlide >
+              <CardStep stepNumber={1} imageSrc='/mocks/mock-1.png' title='Find the best deals end-to-end' subtitle="Less fees and frictions between you and your destination. Skip the middleman and avoid unnecessary booking steps." />
+            </SwiperSlide>
+            <SwiperSlide >
+              <CardStep stepNumber={2} imageSrc='/mocks/mock-2.png' title='Plan your entire trip with Ollie' subtitle="Plan all your journey (transportation, accommodation and activities) in only one app. Enjoy more switch less." />
+            </SwiperSlide>
+            <SwiperSlide >
+              <CardStep stepNumber={3} imageSrc='/mocks/mock-3.png' title='Save pretious time while searching' subtitle="Get personalized itineraries based on your profile and previous trips in an ever-improving AI-based platform." />
+            </SwiperSlide>
+            {/* </Flex> */}
+          </Swiper>
+        </Sal>
         </Section>
 
       {/* <Section>
@@ -261,29 +297,49 @@ const Home: NextPage = () => {
         </Stack>
       </Section>
 
-        <Section>
-        <Stack direction={['column', 'column', 'column', 'row']} w='100%' align='center' justify='center' spacing={[8, 8, 8, 8, 12]}>
+      <Section>
+        <Sal animation='slide-up'>
+          <Swiper
+            slidesPerView={1.5}
+            spaceBetween={30}
+            initialSlide={1}
+            breakpoints={{
+              500: {
+                slidesPerView: 1.7,
+                spaceBetween: 30,
+              },
+              768: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                enabled: false
+              },
+            }}
+            centeredSlides={true}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Pagination]}
+            className="mySwiper"
+            style={{
+              overflow: 'hidden',
+              verticalAlign: 'middle',
+            }}
+          >
+            {passes.map((pass, i) => (
+              <SwiperSlide key={i}>
+                <Box my={10}>
+                  <CardPass title={pass.title} percentage={pass.percentage}
+                    totalQuantity={pass.totalQuantity} highlighted={i === 1}
+                    paymentLink={pass.paymentLink}
+                    passPrice={pass.passPrice}
+                    passDescription={pass.passDescription} />
+                </Box>
+              </SwiperSlide>
+            ))}
 
-          <CardPass title="Pro Pass" percentage={7}
-            totalQuantity={1000} restQuantity={340}
-            paymentLink="https://buy.stripe.com/3cs3cyfTv3joaTSbII"
-            passPrice={199}
-            passDescription={`Up to 20% discount on every booking. Pay once and enjoy discounts for a lifetime. Book your trips on Ollie for 1000€ and you already got back the value of your pass. You save at least 200€ every time when you spend more than 1000€ on travel with Ollie.`} />
+          </Swiper>
+        </Sal>
 
-          <CardPass title="Deluxe Pass" percentage={0}
-            totalQuantity={100} restQuantity={37} highlighted
-            paymentLink="https://buy.stripe.com/7sI6oK8r31bgd2028a"
-            passPrice={997}
-            passDescription={`Up to 28% discount on every booking. Pay once and enjoy discounts for a lifetime. Book travel on Ollie for 3560€ and you already got back the value of your pass. This means that you save at least 997€ every time when you spend more than 3560€ on travel with Ollie.`} />
-
-          <CardPass
-            title="Gold Pass" percentage={5}
-            totalQuantity={500} restQuantity={115}
-            paymentLink="https://buy.stripe.com/28o00m8r3g6a8LK8wx"
-            passPrice={499}
-            passDescription={`Up to 23% discount on every booking. Pay once and enjoy discounts for a lifetime. Book travel on Ollie for 2173€ and you already got back the value of your pass. This means that you save at least 499€ every time when you spend more than 2173€ on travel with Ollie.`} />
-
-          </Stack>
         </Section>
 
       {/* <Section>
