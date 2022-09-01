@@ -16,7 +16,6 @@ import {
 import { Section, CardPass, CardStep, CardCreator, CardQuote, CardPartner, HeaderService, Sal, NewsletterSubscribe } from "../components";
 import sal, { Options } from 'sal.js';
 import 'sal.js/dist/sal.css';
-// import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import "swiper/css/bundle";
@@ -194,13 +193,10 @@ const Home: NextPage = () => {
           </Flex>
         </Section>
 
-      <Section id='about'>
+      <Section id='about' fullWidth>
         <Heading color='brand.darkGray' fontSize={['4xl', '4xl', '5xl', '6xl']} textAlign={['center', 'center', 'start', 'start']} py={[5, 10, 20]} fontWeight='bold' pb={14}>
             Your perfect holiday is just a few clicks away.
-          </Heading>
-        {/* <Flex direction={['column', 'column', 'row']}
-            align='center' justify='center'
-            gap={[5, 8, 10]}> */}
+        </Heading>
         <Sal animation='slide-up'>
           <Swiper
             slidesPerView={1.5}
@@ -237,7 +233,6 @@ const Home: NextPage = () => {
             <SwiperSlide >
               <CardStep stepNumber={3} imageSrc='/mocks/mock-3.png' title='Save pretious time while searching' subtitle="Get personalized itineraries based on your profile and previous trips in an ever-improving AI-based platform." />
             </SwiperSlide>
-            {/* </Flex> */}
           </Swiper>
         </Sal>
         </Section>
@@ -297,7 +292,7 @@ const Home: NextPage = () => {
         </Stack>
       </Section>
 
-      <Section>
+      <Section fullWidth>
         <Sal animation='slide-up'>
           <Swiper
             slidesPerView={1.5}
