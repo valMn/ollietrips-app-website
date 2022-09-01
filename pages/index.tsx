@@ -41,7 +41,7 @@ const navLinks = [{
 const Home: NextPage = () => {
   return (<>
       <Head>
-        <title>Ollie App - An all in one travel app for your dream holiday</title>
+      <title>{`The only travel app you’ll ever need`}</title>
         <meta name="description" content="Homepage for Ollie App" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -77,10 +77,10 @@ const Home: NextPage = () => {
           <Heading
             textAlign='center'
             color='brand.primary'
-            size={['3xl', '3xl', '4xl']}
+            size={['xl', 'xl', '2xl']}
             position='relative'
             top={12}
-          >Ollie App</Heading>
+          >Launching soon</Heading>
         </Sal>
       </Section>
 
