@@ -145,7 +145,7 @@ const Home: NextPage = () => {
 
             <Flex direction='column' align='center' justify='center'
             maxW={['100%', 400]} color='white' h='auto'
-            py={[15, 15, 15, 0]}
+            py={[16, 16, 15, 0]}
             >
             <Heading size='lg' pb={10} >Get up to 20% discount on your first reservation!</Heading >
             <Text >Be one of our first users. The first 2000 travelers who subscribe to our waiting list will receive <span style={{ fontWeight: 'bold' }}>PREMIUM</span> benefits.</Text>
@@ -325,6 +325,7 @@ const Home: NextPage = () => {
                 <Box my={10}>
                   <CardPass title={pass.title} percentage={pass.percentage}
                     totalQuantity={pass.totalQuantity} highlighted={i === 1}
+                    imageSrc={pass.imageSrc}
                     paymentLink={pass.paymentLink}
                     passPrice={pass.passPrice}
                     passDescription={pass.passDescription} />
@@ -378,8 +379,10 @@ const Home: NextPage = () => {
 
         <Section>
           <Flex direction='column' align='center' justify='center' width='100%' gap='80px'>
-            <Heading textAlign='center' size={['3xl', '3xl', '4xl']}>One <span style={{ color: theme.colors.brand.primary }}>App</span> to rule them all!</Heading>
-          <Image src='/mocks/mock-desktop.png' alt='desktop view of the app' width={1200} height={700} priority />
+          <Heading textAlign='center' size={['3xl', '3xl', '4xl']}>One <span style={{ color: theme.colors.brand.primary }}>App</span> to rule them all!</Heading>
+          <Box position='relative'>
+            <FutureImage src='/mocks/mock-desktop.jpg' alt='desktop view of the app' width={1200} height={700} />
+          </Box>
           </Flex>
         </Section>
 
