@@ -231,7 +231,7 @@ const Home: NextPage = () => {
               <CardStep stepNumber={2} imageSrc='/mocks/mock-2.png' title='Plan your entire trip with Ollie' subtitle="Plan all your journey (transportation, accommodation and activities) in only one app. Enjoy more switch less." />
             </SwiperSlide>
             <SwiperSlide >
-              <CardStep stepNumber={3} imageSrc='/mocks/mock-3.png' title='Save pretious time while searching' subtitle="Get personalized itineraries based on your profile and previous trips in an ever-improving AI-based platform." />
+              <CardStep stepNumber={3} imageSrc='/mocks/mock-3.png' title='Save precious time while searching' subtitle="Get personalized itineraries based on your profile and previous trips in an ever-improving AI-based platform." />
             </SwiperSlide>
           </Swiper>
         </Sal>
