@@ -1,6 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
-import { Box, Center, Stack, Flex, Heading, GridItem } from '@chakra-ui/react';
+import { Flex, GridItem } from '@chakra-ui/react';
 
 type Props = {
   src: string;
@@ -16,12 +15,6 @@ export const CardPartner: React.FC<Props> = ({ src, ...rest }) => {
         w='100%' h='100%' 
         align='center' justify='center'
       >
-        {/* <Image src={`/logos/hotels/${src}.svg`} alt={src}
-          width={500} height={500}
-          unoptimized={true}
-          loading="eager"
-          layout='fixed'
-          priority /> */}
         <img src={`/logos/hotels/${src}.svg`} alt={src}
           style={{ aspectRatio: '1/1' }}
         />

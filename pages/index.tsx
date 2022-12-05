@@ -10,10 +10,10 @@ import { passes } from '../data/passes';
 import { headerServices } from "../data/headerServices";
 import {
   Text, Box, Stack, Flex, Heading, Divider, Link,
-  Center, Spacer, Input, Button, HStack, Circle, Grid,
-  Image as ChakraImage
+  Center, HStack, Circle, Grid,
+
 } from '@chakra-ui/react';
-import { Section, CardPass, CardStep, CardCreator, CardQuote, CardPartner, HeaderService, Sal, NewsletterSubscribe } from "../components";
+import { Section, CardPass, CardStep, CardCreator, CardPartner, HeaderService, Sal, NewsletterSubscribe } from "../components";
 import sal, { Options } from 'sal.js';
 import 'sal.js/dist/sal.css';
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -21,9 +21,6 @@ import { Pagination } from "swiper";
 import "swiper/css/bundle";
 
 import { FiLinkedin } from 'react-icons/fi';
-import { FiFacebook } from 'react-icons/fi';
-import { FiInstagram } from 'react-icons/fi';
-import { FiTwitter } from 'react-icons/fi';
 
 sal({ once: true } as Options);
 
@@ -237,23 +234,6 @@ const Home: NextPage = () => {
         </Sal>
         </Section>
 
-      {/* <Section>
-          <Sal animation='slide-left'>
-            <Heading size={['xl', '4xl']} color='brand.darkGray'
-              flex={[0, 2]}>Travel more, for less money</Heading>
-          </Sal>
-          <Box flex={[0, 1, 2]} w='100%'></Box>
-        </Section>
-
-        <Section>
-          <Flex justifyContent='center'>
-            <CardQuote padding={[10, 10, 20]}>
-              <Heading size='md' pb='10'>Other booking platforms are charging between 14% and 30% booking fees. </Heading >
-              <Text>Be our VIP user and reduce your booking fees to as low as 0%. For a lifetime. With our precious Lifetime Passes.</Text>
-            </CardQuote>
-          </Flex>
-        </Section> */}
-
       <Section>
         <Stack spacing={[16]}>
           <Sal animation='slide-left'>
@@ -264,7 +244,6 @@ const Home: NextPage = () => {
             <Stack spacing={[10]} textAlign='center' alignItems='center'>
               <Heading size='md'>Other platforms are charging between 14% - 30% in booking fees.</Heading>
               <Center w='100%'>
-                {/* <Image src='/images/discount-comparison-mock.png' alt='Phone price comparison' width={1200} height={700} priority /> */}
                 <FutureImage
                   priority
                   width={500}
@@ -278,12 +257,6 @@ const Home: NextPage = () => {
                   src='/images/discount-comparison-mock.png'
                   alt='Phone price comparison'
                 />
-                {/* <Image src='/images/discount-comparison-mock.png' alt='Phone price comparison'
-                  width={300}
-                  height={300}
-                  layout='responsive'
-                  priority
-                /> */}
               </Center>
               <Heading size='lg'>How about <span style={{ fontWeight: 'bold', color: theme.colors.brand.primary }}>0% platform fee?</span></Heading>
               <Text maxW={600}>Be our VIP member to reduce your booking fees as low as 0% for a lifetime with our precious lifetime passes.</Text>
@@ -337,45 +310,6 @@ const Home: NextPage = () => {
         </Sal>
 
         </Section>
-
-      {/* <Section>
-        <Flex direction={['column', 'column', 'row']} gap={16}>
-            <Box flex='3'>
-              <Sal animation='slide-left' inline>
-              <Heading size="3xl">
-                {`You're still not sure?`}
-                </Heading>
-              </Sal>
-            </Box>
-          <Stack flex='2' spacing={10}>
-            <Heading size='md'>How much can you save with our Lifetime Passes? </Heading >
-              <Sal animation='slide-right' inline>
-                <Text>{`Let’s imagine that you are spending around €2000 on travel per year. While other booking platforms are charging between 14% and 30% booking fees, Ollie only charges 11-12%.
-                If you use the Ollie free account you are saving on average €100 on your annual plan.`}
-              </Text>
-              </Sal>
-            </Stack>
-          </Flex>
-        </Section> */}
-
-      {/* <Section>
-          <Flex>
-            <Heading size='2xl' color='brand.darkGray' flex='5'>It’s not an idea anymore.<br />
-              Starts to look like the future.
-            </Heading>
-            <Box flex='2'></Box>
-          </Flex>
-        </Section> */}
-
-      {/* <Section>
-                  <Flex justifyContent='center'>
-                    <CardQuote padding={[10, 10, 20]}>
-                      <Text>{`You don't need 100 apps to check the best travel deals, you only need one. `}</Text>
-                      <Heading size='md' pt='2'>Ollie</Heading >
-                    </CardQuote>
-                  </Flex>
-                </Section> */}
-
 
         <Section>
           <Flex direction='column' align='center' justify='center' width='100%' gap='80px'>
@@ -471,27 +405,7 @@ const Home: NextPage = () => {
                       p={2}
                     ><FiLinkedin /></Circle>
                   </a>
-                {/* <a href='#'>
-                    <Circle
-                      bg='white'
-                      color='brand.primary'
-                      p={2}
-                    ><FiFacebook /></Circle>
-                  </a>
-                  <a href='#'>
-                    <Circle
-                      bg='white'
-                      color='brand.primary'
-                      p={2}
-                    ><FiInstagram /></Circle>
-                  </a>
-                  <a href='#'>
-                    <Circle
-                      bg='white'
-                      color='brand.primary'
-                      p={2}
-                    ><FiTwitter /></Circle>
-                  </a> */}
+
                 </HStack>
             </Stack>
 

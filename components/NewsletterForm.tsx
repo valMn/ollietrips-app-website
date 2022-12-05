@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, SyntheticEvent, KeyboardEvent } from 'react';
 import {
   Button, Input, FormErrorMessage, Alert,
-  AlertIcon, AlertTitle, AlertDescription, FormControl, FormLabel, FormHelperText
+  AlertIcon, AlertDescription, FormControl
 } from "@chakra-ui/react";
-import { stringify } from "querystring";
 
 type Props = {
   status: 'success' | 'error' | 'sending' | null;
@@ -13,7 +12,7 @@ type Props = {
   inputProps: {};
 };
 
-export const NewsletterForm = ({ status, message, onValidated, buttonProps, inputProps }: Props) => {
+export const NewsletterForm = ({ status, onValidated, buttonProps, inputProps }: Props) => {
   type ErrorProps = { email?: string, firstName?: string; }
 
   const [formWasSubmitted, setFormWasSubmitted] = useState(false)
@@ -41,7 +40,7 @@ export const NewsletterForm = ({ status, message, onValidated, buttonProps, inpu
    *
    * @return {{value}|*|boolean|null}
    */
-  const handleFormSubmit = (event?: React.SyntheticEvent) => {
+  const handleFormSubmit = (event?: SyntheticEvent) => {
     event && event.preventDefault();
     setError({});
 
@@ -67,7 +66,7 @@ export const NewsletterForm = ({ status, message, onValidated, buttonProps, inpu
    *
    * @param event
    */
-  const handleInputKeyEvent = (event: React.KeyboardEvent) => {
+  const handleInputKeyEvent = (event: KeyboardEvent) => {
     // setError({});
     // Number 13 is the "Enter" key on the keyboard
     if (event.keyCode === 13) {
@@ -78,21 +77,6 @@ export const NewsletterForm = ({ status, message, onValidated, buttonProps, inpu
     }
   };
 
-  /**
-   * Extract message from string.
-   *
-   * @param {String} message
-   * @return {null|*}
-   */
-  // const getMessage = (message: string) => {
-  //   if (!message) {
-  //     return null;
-  //   }
-  //   const result = message?.split('-') ?? null;
-  //   if ("0" !== result?.[0]?.trim()) {
-  //     return message
-  //   }
-  // };
 
   return (
     <>

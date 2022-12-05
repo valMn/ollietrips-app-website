@@ -1,7 +1,6 @@
 import React from 'react';
-import Image from 'next/image';
 import { FiLinkedin } from 'react-icons/fi';
-import { Box, Stack, Text, Heading, Avatar, Icon, Square, Link, Flex } from '@chakra-ui/react';
+import { Box, Stack, Text, Heading, Avatar, Icon, Link, Flex } from '@chakra-ui/react';
 
 type Props = {
   imageSrc: string;

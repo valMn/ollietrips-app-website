@@ -2,20 +2,15 @@ import React from 'react';
 import { Box, Stack, Text, Heading, Tag, Center, Divider, Flex, useDisclosure, Button } from '@chakra-ui/react';
 import {
   Modal, ModalOverlay, ModalContent,
-  // ModalHeader, ModalFooter, ModalBody,
   ModalCloseButton
 } from '@chakra-ui/react';
 import FutureImage from 'next/future/image';
 import { Link } from '@chakra-ui/react';
-// import { ExternalLinkIcon } from '@chakra-ui/icons's
-// import Link from "next/link";
-import Sal from "./Sal";
 
 type Props = {
   title: string;
   percentage: number;
   totalQuantity: number;
-  // restQuantity: number;
   imageSrc: string;
   passPrice: number;
   passDescription: string;
@@ -146,4 +141,4 @@ export const CardPass: React.FC<Props> = ({
 
     </>
   );
-};;
+};

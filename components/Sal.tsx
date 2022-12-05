@@ -1,14 +1,4 @@
-import { flattenTokens } from "@chakra-ui/styled-system";
 import React from 'react';
-import { useMemo } from 'react';
-
-// Don't forget the imports and to initialize
-// sal, when the application first mounts.
-// Don't do it in this file.
-
-// import sal from 'sal.js';
-// import 'sal.js/dist/sal.css';
-// sal();
 
 type Animation =
   'fade' |
