@@ -7,6 +7,7 @@ import {
 type Props = {
   status: 'success' | 'error' | 'sending' | null;
   message: string | Error | null;
+  // eslint-disable-next-line no-unused-vars
   onValidated: (formData: any) => void;
   buttonProps: any;
   inputProps: {};
