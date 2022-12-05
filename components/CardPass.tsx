@@ -2,19 +2,16 @@ import React from 'react';
 import { Box, Stack, Text, Heading, Tag, Center, Divider, Flex, useDisclosure, Button } from '@chakra-ui/react';
 import {
   Modal, ModalOverlay, ModalContent,
-  // ModalHeader, ModalFooter, ModalBody,
   ModalCloseButton
 } from '@chakra-ui/react';
+import FutureImage from 'next/future/image';
 import { Link } from '@chakra-ui/react';
-// import { ExternalLinkIcon } from '@chakra-ui/icons's
-// import Link from "next/link";
-import Sal from "./Sal";
 
 type Props = {
   title: string;
   percentage: number;
   totalQuantity: number;
-  // restQuantity: number;
+  imageSrc: string;
   passPrice: number;
   passDescription: string;
   paymentLink: string;
@@ -24,7 +21,7 @@ type Props = {
 export const CardPass: React.FC<Props> = ({
   title, percentage = 0, totalQuantity,
   paymentLink, passPrice, passDescription,
-  highlighted = false, }) => {
+  highlighted = false, imageSrc }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const textColor = highlighted ? 'white' : 'brand.darkGray';
@@ -86,9 +83,9 @@ export const CardPass: React.FC<Props> = ({
 
         <ModalContent
           w="100%" maxW={850} mx={4}
-          shadow='2xl' borderWidth={highlighted ? 0 : 1}
+          shadow='2xl' borderWidth={1}
           borderRadius='2rem' display='flex' alignItems='center'
-          bg={highlighted ? 'brand.primary' : 'white'}
+          bg='white'
           p={cardPadding} py={[16, 16, 20]}
         >
           <ModalCloseButton rounded={'full'} sx={{
@@ -96,12 +93,13 @@ export const CardPass: React.FC<Props> = ({
             top: [5, 5, 10], right: [5, 5, 10],
             transform: 'scale(1.4)'
           }}
-            color={highlighted ? 'white' : 'brand.primary'} />
+            color='brand.primary' />
           <Stack align={['center', 'center', 'flex-start']}
             justify='center' spacing={[4, 4, 6, 8]}
             maxWidth={420}
-            width={[null, null, '100%']} >
-            < Heading color={textColor} fontWeight={100}
+            width={[null, null, '100%']}
+            color='brand.darkGray'  >
+            < Heading fontWeight={100}
               textAlign="center">{title}<span style={{ fontWeight: '500' }}> €{passPrice}</span></Heading >
             <Flex
               direction={['column', 'column', 'row', 'row', 'row']}
@@ -109,18 +107,19 @@ export const CardPass: React.FC<Props> = ({
               justify='center'
               align='center'
               maxW={[240, 260, 260, 260, 240]}
-              color={textColor} >
+            >
               <Heading
                 fontSize={['6xl', '5xl', '6xll', '6xl', '5xl']} pr={2}>{percentage}%</Heading>
               <Heading size='md' fontWeight={400} textAlign={['center',]}>Booking fees
                 for a lifetime!</Heading>
             </Flex>
+            <FutureImage src={imageSrc} alt='desktop view of the app' width={300} height={300} />
             <Tag size='md' bg={highlighted ? 'brand.accent1' : 'cyan.500'}>
               <Text color={reverseTextColor}>
                 {totalQuantity} pieces
               </Text>
             </Tag>
-            <Stack color={textColor}>
+            <Stack >
               <Text
                 textAlign={['center', 'center', 'start']}
               >
@@ -129,8 +128,8 @@ export const CardPass: React.FC<Props> = ({
             </Stack >
             <Link href={paymentLink} isExternal onClick={onClose}>
               <Button rounded={'full'} size='lg'
-              color={highlighted ? 'brand.primary' : 'white'}
-              bg={highlighted ? 'white' : 'brand.primary'}
+                color='white'
+                bg='brand.primary'
               w='100%'
               _hover={{ background: 'brand.lightgray' }}
               variant={highlighted ? 'solid' : 'solid'}
@@ -142,4 +141,4 @@ export const CardPass: React.FC<Props> = ({
 
     </>
   );
-};;
+};
